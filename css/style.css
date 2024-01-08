@@ -5,3 +5,18 @@
 .navigation {
     padding: 10px;
 }
+
+#background {
+    width: 100%;
+}
+
+#recherche {
+    padding: 10px;
+    border-radius: 5px;
+    background-color:white;
+}
+
+#card {
+    display: flex;
+    align-items: center;
+}
