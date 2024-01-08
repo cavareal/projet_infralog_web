@@ -1,3 +1,7 @@
-.shadow{
+.shadow {
     box-shadow: 0px 0px 10px;
+}
+
+.navigation {
+    padding: 10px;
 }
