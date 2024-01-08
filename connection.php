@@ -1,34 +1,52 @@
 
 <!-- Cette page permet la création de compte et la connexion de l'utilisateur-->
 <!DOCTYPE html>
-<?php include ("core.php"); ?>
+<?php //include ("core_connection.php"); ?>
 </html>
     <head>
         <title> Authentification </title>
+
+        <!-- Latest bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Latest bootstrap 5 JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
 
     <body>
-<!--Demande les informations de connexion (pour utilisateurs déjà inscrit)-->
-        <div class="connexion">
-            <h3>Connexion</h3>
-            <form class="conn" action="core.php" method="POST">
-                <i class="fas fa-user"></i>
-                <input type="text" class="mail" name="email" placeholder="Email">
-                <i class="fas fa-lock"></i>
-                <input type="password" class="mdp" name="motdepasse" placeholder="Mot de passe">
-                <input type="submit" class="connexion" name="Se connecter">
-            </form>
-        </div>
+    <div class="container mt-3">
+        <div class="row">
+    <!--Demande les informations de connexion (pour utilisateurs déjà inscrit)-->
+            <div class="col-md">
+                <h3>Connexion</h3>
+                <form class="conn" action="core.php" method="POST">
+                    <i class="fas fa-user"></i>
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="mail" name="email" placeholder="Email">
+                    </div>
+                    <i class="fas fa-lock"></i>
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="password" class="mdp" name="motdepasse" placeholder="Mot de passe">
+                    </div>
+                    <input type="submit" class="connexion" name="Se connecter">
+                </form>
+            </div>
 
-<!--Demande les informations pour l'inscription (pour utilisateurs pas encore inscrit)-->
-        <div class="inscription">
-            <h3>Incription</h3>
-            <form class="inscription" action="core.php" method="POST">
-                <input type="text" class="mail" name="email_inscri" placeholder="Email">
-                <input type="password" class="mdp" name="motdepasse_inscri" placeholder="Mot de passe">
-                <input type="submit" class="inscription" name="S'inscrire">
-            </form>
+    <!--Demande les informations pour l'inscription (pour utilisateurs pas encore inscrit)-->
+            <div class="col-md">
+                <h3>Incription</h3>
+                <form class="inscription" action="core.php" method="POST">
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="mail" name="email_inscri" placeholder="Email">
+                    </div>
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="password" class="mdp" name="motdepasse_inscri" placeholder="Mot de passe">
+                    </div>
+                    <input type="submit" class="inscription" name="S'inscrire">
+                </form>
+            </div>
         </div>
+    </div>
     </body>
 </html>
 
