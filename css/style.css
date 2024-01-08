@@ -16,7 +16,7 @@
     background-color:white;
 }
 
-#card {
-    display: flex;
+#card-content {
+    display: grid;
     align-items: center;
 }

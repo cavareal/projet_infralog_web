@@ -15,10 +15,10 @@
     <img src="./background.jpg" alt="" id="background">
     -->
 
-    <div class="card img-fluid" id="card">
+    <div class="card img-fluid">
         <img class="card-img-top" src="./background.jpg" alt="background" style="width:100%">
         
-        <div class="card-img-overlay">
+        <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
                 <form>
                     <div class="row" style="margin-bottom: 12px;">
