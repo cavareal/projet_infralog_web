@@ -20,26 +20,58 @@
         
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
-                <form>
+                <form class="was-validated">
                     <div class="row" style="margin-bottom: 12px;">
-                        <div class="col-md-4" style="display: flex; align-items: center;">
-                            <select class="form-select" style="height: 100%;">
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" id="depart" class="form-control" list="departOptions" placeholder="Départ" name="depart" required>
+                                <label for="depart" class="form-label">Départ</label>
+                                <datalist id="departOptions">
+                                    <?php
+                                        foreach ($aeroports as $a){
+                                            echo "<option value= '".$a->ville." - ".$a->nom." ".$a->pays." (".$a->iata.")'>" ;
+                                        }
+                                    ?>
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" id="arrivee" class="form-control" list="arriveeOptions" placeholder="Arrivée" name="arrivee" required>
+                                <label for="arrivee">Arrivée</label>
+                                <datalist id="arriveeOptions">
+                                    <?php
+                                        foreach ($aeroports as $a){
+                                            echo "<option value= '".$a->ville." - ".$a->nom." ".$a->pays." (".$a->iata.")'>" ;
+                                        }
+                                    ?>
+                                </datalist>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="margin-bottom: 12px;">
+                        <div class="col-md-6" style="display: flex; align-items: center;">
+                            <select class="form-select" style="height: 100%;" required>
                                 <option value="simple" selected>Aller simple</option>
                                 <option value="aller-retour">Aller-retour</option>
                             </select>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3" >
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="depart" placeholder="Départ" name="depart">
-                                <label for="depart">Départ</label>
+                                <input type="date" id="dateDepart" class="form-control" name="dateDepart" required>
+                                <label for="dateDepart">Date de départ</label>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3" >
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="arrivee" placeholder="Arrivée" name="arrivee">
-                                <label for="arrivee">Arrivée</label>
+                                <input type="date" id="dateArrivee" class="form-control" name="dateArrivee" required>
+                                <label for="dateArrivee">Date d'arrivée</label>
                             </div>
                         </div>
                     </div>
