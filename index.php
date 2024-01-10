@@ -16,12 +16,12 @@
     ?>
 
     <div class="card img-fluid">
-        <img class="card-img-top" src="./background.jpg" alt="background" style="width:100%">
+        <img class="card-img-top" src="./background.jpg" alt="background">
         
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
                 <form class="was-validated">
-                    <div class="row" style="margin-bottom: 12px;">
+                    <div class="row form-row">
 
                         <div class="col-md-6">
                             <div class="form-floating">
@@ -53,9 +53,9 @@
 
                     </div>
 
-                    <div class="row" style="margin-bottom: 12px;">
-                        <div class="col-md-6" style="display: flex; align-items: center;">
-                            <select class="form-select" style="height: 100%;" required>
+                    <div class="row form-row">
+                        <div class="col-md-6" id="search-select-div">
+                            <select class="form-select" id="search-select" required>
                                 <option value="simple" selected>Aller simple</option>
                                 <option value="aller-retour">Aller-retour</option>
                             </select>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
 
-                    <div class="row" style="padding-left: 12px; padding-right: 12px;">
+                    <div class="row" id="search-button">
                         <button type="submit" class="btn btn-block btn-light">Rechercher</button>
                     </div>
                 </form>
