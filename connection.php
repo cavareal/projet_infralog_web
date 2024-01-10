@@ -34,7 +34,7 @@
 
     <!--Demande les informations pour l'inscription (pour utilisateurs pas encore inscrit)-->
             <div class="col-md">
-                <h3>Incription</h3>
+                <h3>Inscription</h3>
                 <form class="inscription" action="core.php" method="POST">
                     <div class="form-floating mb-3 mt-3">
                         <input type="text" class="mail" name="email_inscri" placeholder="Email">
