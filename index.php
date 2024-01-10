@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <?php include "./donnees/donnees.php" ?>
+
+    <title><?php echo $SITE_TITRE ?> - Acceuil</title>
 </head>
 
 <body>
     <?php
-    include "./header.php";
+        include "./header.php";
     ?>
-
-    <!--
-    <img src="./background.jpg" alt="" id="background">
-    -->
 
     <div class="card img-fluid">
         <img class="card-img-top" src="./background.jpg" alt="background" style="width:100%">
