@@ -8,6 +8,10 @@ footer {
     background-color:white;
 }
 
+header img {
+    height: 40px;
+}
+
 .form-row {
     margin-bottom: 12px;
 }
