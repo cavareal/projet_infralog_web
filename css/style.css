@@ -2,6 +2,12 @@ body {
     background-color: aliceblue;
 }
 
+footer {
+    position:sticky; 
+    bottom:0;
+    background-color:white;
+}
+
 .form-row {
     margin-bottom: 12px;
 }
@@ -39,5 +45,6 @@ body {
 }
 
 #search-select-div {
-    display: flex; align-items: center;
+    display: flex; 
+    align-items: center;
 }
