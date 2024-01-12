@@ -61,17 +61,10 @@
                             </select>
                         </div>
 
-                        <div class="col-md-3" >
+                        <div class="col-md-6" >
                             <div class="form-floating">
                                 <input type="date" id="dateDepart" class="form-control" name="dateDepart" required>
                                 <label for="dateDepart">Date de départ</label>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3" >
-                            <div class="form-floating">
-                                <input type="date" id="dateArrivee" class="form-control" name="dateArrivee" required>
-                                <label for="dateArrivee">Date d'arrivée</label>
                             </div>
                         </div>
                     </div>
