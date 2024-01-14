@@ -84,38 +84,16 @@
             <!--Historique des vols-->
             <div class="col-sm-6">
                 <h3>Mon historique <i class="fa fa-history"></i></h3>
-                <div class="timeline">
-                    <article>
-                        <h2>Paris/NYC</h2>
-                        <ul>
-                        <li><span>Départ</span> Paris</li>
-                        <li><span>Date de départ</span> 01/04/2022, 11:58</li>
-                        <li><span>Place</span>A5</li>
-                        <li><span>Arrivée</span> NYC</li>
-                        <li><span>Date d'arrivée</span> 1/04/2022, 14:50</li>
-                        </ul>
-                    </article>
-                    <article>
-                        <h2>NYC/Paris</h2>
-                        <ul>
-                        <li><span>Départ</span> NYC</li>
-                        <li><span>Date de départ</span> 27/03/2022, 22:58</li>
-                        <li><span>Place</span>B5</li>
-                        <li><span>Arrivée</span> Paris</li>
-                        <li><span>Date d'arrivée</span> 28/03/2022, 1:33</li>
-                        </ul>
-                    </article>
-                    <article>
-                        <h2>Paris/St Denis</h2>
-                        <ul>
-                        <li><span>Départ</span> Paris</li>
-                        <li><span>Date de départ</span> 12/01/2022, 10:07</li>
-                        <li><span>Place</span>D9</li>
-                        <li><span>Arrivée</span> St Denis</li>
-                        <li><span>Date d'arrivée</span> 12/01/2022, 17:50</li>
-                        </ul>
-                    </article>
-                    </div>
+                <div class="card my-5 ">
+                <div class="card-header text-white bg-success"><i class="fa fa-exchange" aria-hidden="true"></i>  Départ : PARIS / Arrivée : NYC</div>
+                    <div class="card-body">Date de départ: 12/01/2024 à 11:58 <br> Lieu: Paris-Charles de Gaulles, PARIS, FR
+                        <br><br> Date d'arrivée: 12/01/2024 à 14h30 <br> Lieu: International JFK, NYC, USA </div>
+                </div>
+                <div class="card my-5 ">
+                <div class="card-header text-white bg-danger"><i class="fa fa-exchange" aria-hidden="true"></i>  Départ : PARIS / Arrivée : NYC (ANNULATION)</div>
+                    <div class="card-body">Date de départ: 12/01/2024 à 11:58 <br> Lieu: Paris-Charles de Gaulles, PARIS, FR
+                        <br><br> Date d'arrivée: 12/01/2024 à 14h30 <br> Lieu: International JFK, NYC, USA </div>
+            </div>
             </div>
         </div>
     </div>
