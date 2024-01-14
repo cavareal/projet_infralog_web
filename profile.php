@@ -19,7 +19,7 @@
     
     <!--Accéder au portefeuille et à l'historique des vols-->
     <div class="container my-4">
-        <a href="./wallet" class="btn btn-primary">Accéder au portefeuille</a>
+        <a href="./wallet.php" class="btn btn-primary">Accéder au portefeuille</a>
     </div>
 
     <!--Récapitulatif des informations personnelles du compte-->
@@ -80,7 +80,7 @@
     echo('</div>
     </form>');
     ?>
-
+ <?php include("footer.php") ?>
 </body>
 
 </html>
