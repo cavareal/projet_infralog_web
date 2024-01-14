@@ -45,8 +45,8 @@
                     </ul>
                 
                     <div class="d-flex">
-                        <button class="btn" type="button">Se connecter</button>
-                        <button class="btn" type="button">Créer mon compte</button>
+                        <a href="./connection.php?form=connexion" class="btn border">Se connecter</a>
+                        <a href="./connection.php" class="btn border">Créer mon compte</a>
                     </div>
                 </div>
             </div>
