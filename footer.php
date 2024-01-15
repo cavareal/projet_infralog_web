@@ -17,19 +17,18 @@
 </head>
 <body>
     <footer class="container-flex shadow">
-        <nav style="width: 90%;" class="navbar navbar-expand-md sticky-top">
+        <nav class="navbar navbar-expand-md sticky-top">
             <div class="container-fluid">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contactez-nous</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex">
                 <a class="navbar-brand" href="./">
                     <img src="./favicon.png" alt="Logo-favicon.png" style="width: 40px;" class="rounded-pill">
                 </a>
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
-                    </li>
-                </ul>
             </div>
         </nav>
     </footer>
