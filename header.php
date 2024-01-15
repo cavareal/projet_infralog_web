@@ -23,8 +23,8 @@
         <nav class="navbar navbar-expand-md bg-white sticky-top shadow-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
-                    <img src="./favicon.png" alt="Logo-favicon.png" class="rounded-pill">
-                    <img src="./logo_nom.png" alt="Logo-favicon.png">
+                    <img src="./images/favicon.png" alt="Logo-favicon.png" class="rounded-pill">
+                    <img src="./images/logo_nom.png" alt="Logo-favicon.png">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
