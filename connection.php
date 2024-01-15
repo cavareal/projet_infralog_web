@@ -1,7 +1,7 @@
 
 <!-- Cette page permet la création de compte et la connexion de l'utilisateur-->
 <!DOCTYPE html>
-<?php //include ("core_connection.php"); ?>
+
 </html>
     <head>
         <title> Authentification </title>
