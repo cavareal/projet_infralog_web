@@ -7,7 +7,7 @@
 
     <?php include "./donnees/donnees.php" ?>
 
-    <title><?php echo $SITE_TITRE ?> - Acceuil</title>
+    <title><?php echo $SITE_TITRE ?> - Accueil</title>
 </head>
 
 <body>
