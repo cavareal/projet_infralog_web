@@ -28,58 +28,46 @@
     //Variable qui permet de modifier les champs
     $readOnly=' readonly="readonly"';
 
-    //Valeur de base (pour test)
-    $prenom="Alexis";
-    $nom="Bajolle";
-    $datedenaissance="2002-04-11";
-    $email="alexis.bajolle@reseau.eseo.fr";
-
-    if(isset($_POST['sauvegarder'])){
-        $prenom=$_POST['prenom'];
-        $nom=$_POST['nom'];
-        $datedenaissance=$_POST['datenaissance'];
-        $email=$_POST['email'];
-    }
-
     //Modifie le formulaire pour effectuer les changements d'informations
     if(isset($_POST['modifier'])){
         $readOnly=" ";
     }
 
-    //Récapitulatif de toutes les informations de l'utilisateur 
-    //(si appuie sur le bouton "Modifier" alors changement des données possible)
-    echo ('<form method="post" action="">
+    ?>
+
+    <!--Récapitulatif de toutes les informations de l'utilisateur 
+    //(si appuie sur le bouton "Modifier" alors changement des données possible)-->
+    <form method="post" action="">
     <div class="container my-3">
         <h3>Mes informations personnelles</h3>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control" type="text" id="prenom" name="prenom" value='.$prenom.' placeholder="Prénom"'. $readOnly .'>
+            <input class="form-control" type="text" id="prenom" name="prenom" value='.<?php $prenom ?>.' placeholder="Prénom" <?php $readOnly ?>>
             <label for="prenom">Prénom :</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control" type="text" id="nom" name="nom" value='.$nom.' placeholder="Nom" '. $readOnly .'>
+            <input class="form-control" type="text" id="nom" name="nom" value='.<?php $nom ?>.' placeholder="Nom" <?php $readOnly ?>>
             <label for="nom">Nom :</label>
         </div>
 
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control" type="date" id="datenaissance" name="datenaissance" value='.$datedenaissance.' placeholder="Date de naissance" '. $readOnly .'>
+            <input class="form-control" type="date" id="datenaissance" name="datenaissance" value='.<?php $datedenaissance ?>.' placeholder="Date de naissance" <?php $readOnly ?>>
             <label for="datenaisssance">Date de naissance :</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-            <input class="form-control" type="text" id="email" name="email" value='.$email.' placeholder="Email" '. $readOnly .'>
+            <input class="form-control" type="text" id="email" name="email" value='.<?php $email ?>.' placeholder="Email" <?php $readOnly ?>>
             <label for="email">Email :</label>
-        </div>');
+        </div>
     
 
-    //Changement du bouton modifier en bouton de sauvegarde
-    if(isset($_POST['modifier'])){
+    <!--Changement du bouton modifier en bouton de sauvegarde-->
+    <?php if(isset($_POST['modifier'])){
         echo('<input class="btn btn-primary" type="submit" name="sauvegarder" value="Sauvegarder les modifications">');
     } else {
         echo('<input class="btn btn-primary" type="submit" name="modifier" value="Modifier">');
-    }
+    }?>
     
-    echo('</div>
-    </form>');
-    ?>
+        </div>
+    </form>
  <?php include("footer.php") ?>
 </body>
 
