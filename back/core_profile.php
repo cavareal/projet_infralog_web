@@ -1,4 +1,8 @@
 <?php
+include("connexionBdd.php");
+
+global $conn;
+$conn=bdd_connect();
 
 //Prend toutes les données de l'utilisateurs pour les entrer dans la page profil
 function recup_info()
