@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 5%; /* Ajustement de la marge en pourcentage */
+}
+
+.timeline:after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 5%; /* Ajustement de la position en pourcentage */
+  width: 4px; /* Ajustement de la largeur */
+  background: #346abf;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.timeline article {
+  position: relative;
+  left: 10%; /* Ajustement de la position en pourcentage */
+  padding: 15px;
+  width: 85%; /* Ajustement de la largeur */
+  background-color: #f5f5f5; /* Ajout d'une couleur de fond */
+  border-radius: 8px; /* Ajout d'un arrondi aux coins */
+}
+
+.timeline article + article {
+  margin-top: 15px;
+}
+
+.timeline article:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -15%; /* Ajustement de la position en pourcentage */
+  width: 9px;
+  height: 15px;
+  border: 16px #346abf solid;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Partie réservation */
+#couleur-logo{
+  background-color: rgba(26,87,133,255);
+} 

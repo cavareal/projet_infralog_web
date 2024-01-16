@@ -1,7 +1,54 @@
-.shadow {
-    box-shadow: 0px 0px 10px;
+body {
+    background-color: aliceblue;
+}
+
+footer {
+    position:sticky; 
+    bottom:0;
+    background-color:white;
+}
+
+header img {
+    height: 40px;
+}
+
+.form-row {
+    margin-bottom: 12px;
 }
 
 .navigation {
     padding: 10px;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+#background {
+    width: 100%;
+}
+
+#recherche {
+    padding: 10px;
+    border-radius: 5px;
+    background-color:white;
+}
+
+#card-content {
+    display: grid;
+    align-items: center;
+}
+
+#search-button {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#search-select {
+    height: 100%;
+}
+
+#search-select-div {
+    display: flex; 
+    align-items: center;
 }

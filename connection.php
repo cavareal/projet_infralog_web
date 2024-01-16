@@ -1,7 +1,7 @@
 
 <!-- Cette page permet la création de compte et la connexion de l'utilisateur-->
 <!DOCTYPE html>
-<?php //include ("core_connection.php"); ?>
+
 </html>
     <head>
         <title> Authentification </title>
@@ -22,7 +22,7 @@
     <?php include("header.php") ?>
 
     <div class="card img-fluid">
-    <img class="card-img-top" src="./avion_connexion.jpg" alt="avion_connexion">
+    <img class="card-img-top" src="./images/avion_connexion.jpg" alt="avion_connexion">
     <div class="card-img-overlay">
         <div class="container mt-3 d-flex align-items-center justify-content-center">
         <!--Permet de switcher entre la partie connexion et inscription-->

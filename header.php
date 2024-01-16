@@ -4,53 +4,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="../favicon.png">
-
-    <link href="../css/style.css" rel="stylesheet">
+    <link rel="icon" href="./favicon.png">
 
     <!-- Latest bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Latest bootstrap 5 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="./css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <div style="background-color: white; display: flex; align-items: center;" class="shadow sticky-top">
 
-        <nav style="width: 90%;" class="navbar navbar-expand-md sticky-top">
+    <!--Permet la deconnexion-->
+    <?php
+    if (isset($_GET['deco'])) {
+        $_SESSION['pseudo'] = '';
+    }
+    ?>
+
+    <header>
+        <nav class="navbar navbar-expand-md bg-white sticky-top shadow-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
-                    <img src="../favicon.png" alt="Logo-favicon.png" style="width: 40px;" class="rounded-pill">
-                    <img src="../logo_nom.png" alt="Logo-favicon.png" style="height: 40px;" >
+
+                    <img src="./favicon.png" alt="Logo-favicon.png" class="rounded-pill">
+                    <img src="./logo_nom.png" alt="Logo-favicon.png">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 1</a>
+                            <a class="nav-link" <?php if (empty($_SESSION['pseudo'])) {
+                                                    echo 'href="./connection.php?form=connexion"';
+                                                } else {
+                                                    echo 'href="./profile.php"';
+                                                } ?>>Mon profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 2</a>
+                            <a class="nav-link" <?php if (empty($_SESSION['pseudo'])) {
+                                                    echo 'href="./connection.php?form=connexion"';
+                                                } else {
+                                                    echo 'href="./wallet.php"';
+                                                } ?>>Mes réservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 3</a>
+                            <a class="nav-link" href="#">Contactez-nous</a>
                         </li>
                     </ul>
+
+                    <?php if (empty($_SESSION['pseudo'])) { ?>
+                        <div class="d-flex">
+                            <a class="btn" href="./connection.php?form=connexion">Se connecter</a>
+                            <a class="btn" href="./connection.php?form=inscription">Créer mon compte</a>
+                        </div>
+                    <?php } else { ?>
+                        <div class="d-flex">
+                            <form action="" method="GET">
+                                <button class="btn" type="submit" name="deco" value="deco">Se déconnecter</button>
+                            </form>
+                            <img src="./default_picture.png" alt="default_picture.png" class="rounded-pill">
+                        </div>
+                    <?php } ?>
+
                 </div>
             </div>
         </nav>
-
-        <div style="float: right; width: 10%; display: flex; padding: 12px; justify-content: end;">
-            <a class="" href="./">
-                <img src="../default_picture.png" alt="Profile_picture" class="rounded-pill" style="width: 30px;">
-            </a>
-        </div>
-    </div>
+    </header>
 
 </body>
+
 </html>
