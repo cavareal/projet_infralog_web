@@ -12,7 +12,7 @@ function recup_info()
         while ($row = $result->fetch_assoc()) {
             $prenom = $row['prenom'];
             $nom = $row['nom'];
-            $datedenaissance = $row['datenaissance'];
+            $datedenaissance = $row['dateNaissance'];
             $email = $row['email'];
         }
     } else {
@@ -34,7 +34,7 @@ function modif_info()
         $nouvelEmail = $_POST['email'];
 
         // Préparer et exécuter la requête SQL UPDATE
-        $sql = "UPDATE Client SET prenom='$nouveauPrenom', nom='$nouveauNom', datenaissance='$nouvelleDateNaissance', email='$nouvelEmail'";
+        $sql = "UPDATE Client SET prenom='$nouveauPrenom', nom='$nouveauNom', dateNaissance='$nouvelleDateNaissance', email='$nouvelEmail'";
         
         $conn->query($sql)
     }
