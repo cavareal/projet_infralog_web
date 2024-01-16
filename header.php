@@ -23,8 +23,8 @@
         <nav class="navbar navbar-expand-md bg-white sticky-top shadow-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
-                    <img src="./favicon.png" alt="Logo-favicon.png" class="rounded-pill">
-                    <img src="./logo_nom.png" alt="Logo-favicon.png">
+                    <img src="./images/favicon.png" alt="Logo-favicon.png" class="rounded-pill">
+                    <img src="./images/logo_nom.png" alt="Logo-favicon.png">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -45,8 +45,8 @@
                     </ul>
                 
                     <div class="d-flex">
-                        <button class="btn" type="button">Se connecter</button>
-                        <button class="btn" type="button">Créer mon compte</button>
+                        <a href="./connection.php?form=connexion" class="btn border">Se connecter</a>
+                        <a href="./connection.php" class="btn border">Créer mon compte</a>
                     </div>
                 </div>
             </div>

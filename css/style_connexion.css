@@ -1,0 +1,20 @@
+/* Application de la couleur du logo */
+#couleur_logo{
+    background-color: rgba(26,87,133,255);
+}
+
+/* Faire en sorte que les encadrés connexion et inscription soient égaux */
+#carte{
+    width: 40%;
+    height:70%;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+#avion_connexion {
+    width: 100%;
+}
+
+

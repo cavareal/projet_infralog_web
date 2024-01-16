@@ -7,7 +7,7 @@
 
     <?php include "./donnees/donnees.php" ?>
 
-    <title><?php echo $SITE_TITRE ?> - Acceuil</title>
+    <title><?php echo $SITE_TITRE ?> - Accueil</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     ?>
 
     <div class="card img-fluid">
-        <img class="card-img-top" src="./background.jpg" alt="background">
+        <img class="card-img-top" src="./images/background.jpg" alt="background">
         
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
