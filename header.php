@@ -22,6 +22,7 @@
     <?php
     if (isset($_GET['deco'])) {
         $_SESSION['pseudo'] = '';
+        header('Location: index.php');
     }
     ?>
 
