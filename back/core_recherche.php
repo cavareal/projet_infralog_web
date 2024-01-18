@@ -24,6 +24,13 @@ function getVols(){
     }
 
     return $vols;
+    
+}
+
+function getAeroport() {
+    $bdd = bdd_connect();
+
+
 }
 
 //echo json_encode(getVols());
