@@ -8,6 +8,10 @@ footer {
     background-color:white;
 }
 
+.bg-flyBook {
+    background-color: rgba(26,87,133,255);
+}
+
 header img {
     height: 40px;
 }
