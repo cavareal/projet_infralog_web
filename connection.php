@@ -1,6 +1,6 @@
 <!-- Cette page permet la création de compte et la connexion de l'utilisateur-->
 <!DOCTYPE html>
-<?php //include ("core_connection.php"); 
+<?php include ("back/core_connection.php"); 
 ?>
 </html>
 
@@ -25,7 +25,7 @@
     <?php include("header.php") ?>
 
     <div class="card img-fluid">
-        <img class="card-img-top" src="./avion_connexion.jpg" alt="avion_connexion">
+        <img class="card-img-top" src="images/avion_connexion.jpg" alt="avion_connexion">
         <div class="card-img-overlay">
             <div class="container mt-3 d-flex align-items-center justify-content-center">
                 <!--Permet de switcher entre la partie connexion et inscription-->
@@ -50,7 +50,7 @@
                             <br>
                             <p> Vous n'êtes pas encore inscrit ? <a href="?form=inscription"> Créez-vous un compte </a></p>
                         </div>
-                    </div>';
+                    </div>
                 <?php } else { ?>
                     <!--Demande les informations pour l'inscription (pour utilisateurs pas encore inscrit)-->
                     <div class="card my-5" id="carte">
