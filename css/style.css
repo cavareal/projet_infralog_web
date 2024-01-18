@@ -56,3 +56,9 @@ header img {
     display: flex; 
     align-items: center;
 }
+
+#index-footer {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+}

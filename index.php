@@ -77,9 +77,11 @@
         </div>
     </div>
 
-    <?php
-        include "./footer.php";
-    ?>
+    <div id="index-footer" class="container-fluid">
+        <?php
+            include "./footer.php";
+        ?>
+    </div>
 </body>
 
 </html>
