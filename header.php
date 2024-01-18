@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="./favicon.png">
-
     <!-- Latest bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -13,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <link href="./css/style.css" rel="stylesheet">
+
+    <link rel="icon" href="./images/favicon.png">
 
 </head>
 
@@ -30,8 +30,8 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
 
-                    <img src="./favicon.png" alt="Logo-favicon.png" class="rounded-pill">
-                    <img src="./logo_nom.png" alt="Logo-favicon.png">
+                    <img src="./images/favicon.png" alt="Logo-favicon.png" class="rounded-pill">
+                    <img src="./images/logo_nom.png" alt="Logo-favicon.png">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -69,7 +69,7 @@
                             <form action="" method="GET">
                                 <button class="btn" type="submit" name="deco" value="deco">Se déconnecter</button>
                             </form>
-                            <img src="./default_picture.png" alt="default_picture.png" class="rounded-pill">
+                            <img src="./images/default_picture.png" alt="default_picture.png" class="rounded-pill">
                         </div>
                     <?php } ?>
 
