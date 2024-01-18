@@ -20,7 +20,7 @@
         
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
-                <form class="was-validated">
+                <form action="./recherche.php" class="needs-validation">
                     <div class="row form-row">
 
                         <div class="col-md-6">
@@ -55,7 +55,7 @@
 
                     <div class="row form-row">
                         <div class="col-md-6" id="search-select-div">
-                            <select class="form-select" id="search-select" required>
+                            <select class="form-select" id="search-select" name="volRetour" required>
                                 <option value="simple" selected>Aller simple</option>
                                 <option value="aller-retour">Aller-retour</option>
                             </select>
