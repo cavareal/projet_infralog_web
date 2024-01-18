@@ -16,7 +16,7 @@
     ?>
 
     <div class="card img-fluid">
-        <img class="card-img-top" src="./background.jpg" alt="background">
+        <img class="card-img-top" src="./images/background.jpg" alt="background">
         
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
