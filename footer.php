@@ -27,7 +27,7 @@
             </div>
             <div class="d-flex">
                 <a class="navbar-brand" href="./">
-                    <img src="./favicon.png" alt="Logo-favicon.png" style="width: 40px;" class="rounded-pill">
+                    <img src="./images/favicon.png" alt="Logo-favicon.png" style="width: 40px;" class="rounded-pill">
                 </a>
             </div>
         </nav>
