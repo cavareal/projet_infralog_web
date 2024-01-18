@@ -9,18 +9,22 @@
 
     <link href="./css/style.css" rel="stylesheet">
 
-    <title><?php echo $SITE_TITRE ?> - Recherche</title>
-
     <?php
         include "./donnees/donnees.php";
         include "./back/core_recherche.php";
     ?>
+
+    <title><?php echo $SITE_TITRE ?> - Recherche</title>
 </head>
 
 <body>
     <?php include "header.php" ?>
 
     <?php 
+        if (empty($_GET['depart'])) { 
+            header("location:./");
+        }
+
         $vols = getVols(); 
     ?>
 
