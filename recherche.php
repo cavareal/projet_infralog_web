@@ -37,7 +37,7 @@
                 <a class="nav-link active" href="#">Vol aller</a>
             </li>
 
-            <?php if($_GET['volRetour']) { ?>
+            <?php if($_GET['volRetour'] == 'aller-retour') { ?>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Vol retour</a>
                 </li>
