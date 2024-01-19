@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!--FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link href="./css/style.css" rel="stylesheet">
 
     <?php
-        include "./donnees/donnees.php";
-        include "./back/core_recherche.php";
+    include "./donnees/donnees.php";
+    include "./back/core_recherche.php";
     ?>
 
     <title><?php echo $SITE_TITRE ?> - Recherche</title>
@@ -20,12 +21,12 @@
 <body>
     <?php include "header.php" ?>
 
-    <?php 
-        if (empty($_GET['depart'])) { 
-            header("location:./");
-        }
+    <?php
+    if (empty($_GET['depart'])) {
+        header("location:./");
+    }
 
-        $vols = getVols(); 
+    $vols = bddGetVols(getIata($_GET['depart']), getIata($_GET['arrivee']), $_GET['dateDepart']);
     ?>
 
     <nav class="shadow bg-white p-2 border">
@@ -37,7 +38,7 @@
                 <a class="nav-link active" href="#">Vol aller</a>
             </li>
 
-            <?php if($_GET['volRetour'] == 'aller-retour') { ?>
+            <?php if ($_GET['volRetour'] == 'aller-retour') { ?>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Vol retour</a>
                 </li>
@@ -53,7 +54,7 @@
     </nav>
 
     <div class="container-fluid mt-4 mb-5">
-        <h1><b><?php echo explode(" ",$_GET['depart'])[0] . ' - ' . explode(" ",$_GET['arrivee'])[0] ?></b></h1>
+        <h1><b><?php echo explode(" ", $_GET['depart'])[0] . ' - ' . explode(" ", $_GET['arrivee'])[0] ?></b></h1>
     </div>
 
     <div class="container-fluid bg-white shadow">
@@ -66,7 +67,7 @@
     <div class="container bg-white border mt-5 mb-5" style="border-radius: 5px;">
 
         <?php
-            foreach ($vols as $vol) {
+        foreach ($vols as $vol) {
         ?>
 
             <div class="card my-2">
@@ -108,4 +109,5 @@
 
     <?php include "footer.php" ?>
 </body>
+
 </html>

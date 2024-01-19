@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php 
-        include "./back/core_recherche.php";
-        include "./donnees/donnees.php" 
+    <?php
+    include "./back/core_recherche.php";
+    include "./donnees/donnees.php"
     ?>
 
     <title><?php echo $SITE_TITRE ?> - Accueil</title>
@@ -15,13 +15,13 @@
 
 <body>
     <?php
-        $aeroports = getAeroport();
-        include "./header.php";
+    $aeroports = bddGetAeroport();
+    include "./header.php";
     ?>
 
     <div class="card img-fluid">
         <img class="card-img-top" src="./images/background.jpg" alt="background">
-        
+
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
                 <form action="./recherche.php" class="needs-validation">
@@ -33,9 +33,9 @@
                                 <label for="depart" class="form-label">Départ</label>
                                 <datalist id="departOptions">
                                     <?php
-                                        foreach ($aeroports as $a){
-                                            echo "<option value= '".$a['ville']." - ".$a['nom']." ".$a['pays']." (".$a['acronyme'].")'>" ;
-                                        }
+                                    foreach ($aeroports as $a) {
+                                        echo "<option value= '" . $a['ville'] . " - " . $a['nom'] . " " . $a['pays'] . " (" . $a['acronyme'] . ")'>";
+                                    }
                                     ?>
                                 </datalist>
                             </div>
@@ -47,9 +47,9 @@
                                 <label for="arrivee">Arrivée</label>
                                 <datalist id="arriveeOptions">
                                     <?php
-                                        foreach ($aeroports as $a){
-                                            echo "<option value= '".$a['ville']." - ".$a['nom']." ".$a['pays']." (".$a['acronyme'].")'>" ;
-                                        }
+                                    foreach ($aeroports as $a) {
+                                        echo "<option value= '" . $a['ville'] . " - " . $a['nom'] . " " . $a['pays'] . " (" . $a['acronyme'] . ")'>";
+                                    }
                                     ?>
                                 </datalist>
                             </div>
@@ -65,7 +65,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6" >
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="date" id="dateDepart" class="form-control" name="dateDepart" required>
                                 <label for="dateDepart">Date de départ</label>
@@ -83,7 +83,7 @@
 
     <div id="index-footer" class="container-fluid">
         <?php
-            include "./footer.php";
+        include "./footer.php";
         ?>
     </div>
 </body>
