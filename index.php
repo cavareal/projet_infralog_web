@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php include "./donnees/donnees.php" ?>
+    <?php 
+        include "./back/core_recherche.php";
+        include "./donnees/donnees.php" 
+    ?>
 
     <title><?php echo $SITE_TITRE ?> - Accueil</title>
 </head>
 
 <body>
     <?php
+        $aeroports = getAeroport();
         include "./header.php";
     ?>
 
@@ -30,7 +34,7 @@
                                 <datalist id="departOptions">
                                     <?php
                                         foreach ($aeroports as $a){
-                                            echo "<option value= '".$a->ville." - ".$a->nom." ".$a->pays." (".$a->iata.")'>" ;
+                                            echo "<option value= '".$a['ville']." - ".$a['nom']." ".$a['pays']." (".$a['acronyme'].")'>" ;
                                         }
                                     ?>
                                 </datalist>
@@ -44,7 +48,7 @@
                                 <datalist id="arriveeOptions">
                                     <?php
                                         foreach ($aeroports as $a){
-                                            echo "<option value= '".$a->ville." - ".$a->nom." ".$a->pays." (".$a->iata.")'>" ;
+                                            echo "<option value= '".$a['ville']." - ".$a['nom']." ".$a['pays']." (".$a['acronyme'].")'>" ;
                                         }
                                     ?>
                                 </datalist>
