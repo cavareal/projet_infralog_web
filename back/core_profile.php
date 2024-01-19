@@ -6,7 +6,7 @@ $conn = bdd_connect();
 
 //Prend toutes les données de l'utilisateurs pour les entrer dans la page profil
 //récupération email, nom, prenom et date de naissance
-$sql = "SELECT * FROM client WHERE id='" . $_SESSION['pseudo'] . "'";
+$sql = "SELECT * FROM fly_book_eseo.Client WHERE id='" . $_SESSION['pseudo'] . "'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -27,7 +27,7 @@ if (isset($_POST['sauvegarder'])) {
     $nouvelEmail = $_POST['email'];
 
     // Exécution de la requête
-    $sqli = "UPDATE client SET prenom='$nouveauPrenom', nom='$nouveauNom', dateNaissance='$nouvelleDateNaissance', email='$nouvelEmail' WHERE id='" . $_SESSION['pseudo'] . "'";
+    $sqli = "UPDATE fly_book_eseo.Client SET prenom='$nouveauPrenom', nom='$nouveauNom', dateNaissance='$nouvelleDateNaissance', email='$nouvelEmail' WHERE id='" . $_SESSION['pseudo'] . "'";
     $conn->query($sqli);
     header("Refresh:0");
 }
@@ -37,8 +37,7 @@ function modif_sauv($conn)
 {
     if (isset($_POST['modifier'])) {
         echo ('<input class="btn btn-primary" type="submit" name="sauvegarder" value="Sauvegarder les modifications">');
-    }
-    else {
+    } else {
         echo ('<input class="btn btn-primary" type="submit" name="modifier" value="Modifier">');
     }
 }

@@ -26,18 +26,17 @@
     <!--Insertion du header-->
     <?php include("header.php") ?>
 
-    <?php
-    //Affichage erreurs de connexion
-    if (isset($_GET['erreur'])) {
-        echo '<div class="alert alert-danger">
-            <strong>Impossible de vous connecter !</strong> ' . $messageErreur . '
-            </div>';
-    }
-    ?>
-
     <div class="card img-fluid">
         <img class="card-img-top" src="images/avion_connexion.jpg" alt="avion_connexion">
         <div class="card-img-overlay">
+            <?php
+            //Affichage erreurs de connexion
+            if (isset($_GET['erreur'])) {
+                echo '<div class="alert alert-danger">
+            <strong>Impossible de vous connecter !</strong> ' . $messageErreur . '
+            </div>';
+            }
+            ?>
             <div class="container mt-3 d-flex align-items-center justify-content-center">
                 <!--Permet de switcher entre la partie connexion et inscription-->
                 <?php if (isset($_GET['form']) && $_GET['form'] == 'inscription') { ?>
@@ -69,6 +68,11 @@
                                     <input type="password" class="form-control" name="motdepasse_inscri"
                                         placeholder="Mot de passe" required>
                                     <label for="motdepasse_inscri">Mot de passe</label>
+                                </div>
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="password" class="form-control" name="motdepasseconfirm"
+                                        placeholder="Confirmation mot de passe">
+                                    <label for="motdepasseconfirm">Confirmation mot de passe</label>
                                 </div>
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" name="condition" required>
