@@ -22,7 +22,7 @@
     <?php
     if (isset($_GET['deco'])) {
         $_SESSION['pseudo'] = '';
-        header('Location: index.php');
+        header('Location: ./connection.php?form=connexion');
     }
     ?>
 
@@ -70,7 +70,9 @@
                             <form action="" method="GET">
                                 <button class="btn" type="submit" name="deco" value="deco">Se déconnecter</button>
                             </form>
-                            <img src="./images/default_picture.png" alt="default_picture.png" class="rounded-pill">
+                            <a href="profile.php">
+                                <img src="./images/default_picture.png" alt="default_picture.png" class="rounded-pill">
+                            </a>
                         </div>
                     <?php } ?>
 
