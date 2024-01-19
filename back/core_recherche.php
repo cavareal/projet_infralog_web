@@ -7,7 +7,7 @@ include "./back/connexionBdd.php";
 function getVols(){
     $bdd = bdd_connect();
 
-    $sql = "SELECT V.numeroVol, V.dateHeureLocaleDepart AS 'dateHeureDepart', V.dateHeureLocaleArrivee AS 'dateHeureArrivee', V.dureeVol, V.modeleAvion, D.acronyme AS 'iataDepart', D.ville AS 'villeDepart', D.pays AS 'paysDepart', D.nom AS 'nomDepart', A.acronyme AS 'iataArrivee', A.ville AS 'villeArrivee', A.pays AS 'paysArrivee', A.nom AS 'nomArrivee' FROM Vol V, Aeroport D, Aeroport A WHERE V.depart = D.acronyme AND V.arrivee = A.acronyme;";
+    $sql = "SELECT V.numeroVol, V.dateHeureLocaleDepart AS 'dateHeureDepart', V.dateHeureLocaleArrivee AS 'dateHeureArrivee', V.dureeVol, V.modeleAvion, D.acronyme AS 'iataDepart', D.ville AS 'villeDepart', D.pays AS 'paysDepart', D.nom AS 'nomDepart', A.acronyme AS 'iataArrivee', A.ville AS 'villeArrivee', A.pays AS 'paysArrivee', A.nom AS 'nomArrivee' FROM fly_book_eseo.Vol V, fly_book_eseo.Aeroport D, fly_book_eseo.Aeroport A WHERE V.depart = D.acronyme AND V.arrivee = A.acronyme;";
 
     $result = $bdd->query($sql);
 
@@ -23,17 +23,31 @@ function getVols(){
         echo "Aucun résultat trouvé.";
     }
 
-    return $vols;
-    
+    $bdd->close();
+    return $vols;    
 }
 
 function getAeroport() {
     $bdd = bdd_connect();
 
+    $sql = "SELECT * FROM fly_book_eseo.Aeroport;";
 
+    $result = $bdd->query($sql);
+
+    $aeroports = array();
+
+    if ($result->num_rows > 0) {
+        // Traiter les résultats
+        while ($row = $result->fetch_assoc()) {
+           array_push($aeroports, $row);
+        }
+
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+
+    $bdd->close();
+    return $aeroports;
 }
-
-//echo json_encode(getVols());
-//die;
 
 ?>

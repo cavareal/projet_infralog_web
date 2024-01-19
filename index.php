@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php include "./donnees/donnees.php" ?>
+    <?php 
+        include "./back/core_recherche.php";
+        include "./donnees/donnees.php" 
+    ?>
 
     <title><?php echo $SITE_TITRE ?> - Accueil</title>
 </head>
 
 <body>
     <?php
+        $aeroports = getAeroport();
         include "./header.php";
     ?>
 
@@ -20,7 +24,7 @@
         
         <div class="card-img-overlay" id="card-content">
             <div class="shadow" id="recherche">
-                <form class="was-validated">
+                <form action="./recherche.php" class="needs-validation">
                     <div class="row form-row">
 
                         <div class="col-md-6">
@@ -30,7 +34,7 @@
                                 <datalist id="departOptions">
                                     <?php
                                         foreach ($aeroports as $a){
-                                            echo "<option value= '".$a->ville." - ".$a->nom." ".$a->pays." (".$a->iata.")'>" ;
+                                            echo "<option value= '".$a['ville']." - ".$a['nom']." ".$a['pays']." (".$a['acronyme'].")'>" ;
                                         }
                                     ?>
                                 </datalist>
@@ -44,7 +48,7 @@
                                 <datalist id="arriveeOptions">
                                     <?php
                                         foreach ($aeroports as $a){
-                                            echo "<option value= '".$a->ville." - ".$a->nom." ".$a->pays." (".$a->iata.")'>" ;
+                                            echo "<option value= '".$a['ville']." - ".$a['nom']." ".$a['pays']." (".$a['acronyme'].")'>" ;
                                         }
                                     ?>
                                 </datalist>
@@ -55,7 +59,7 @@
 
                     <div class="row form-row">
                         <div class="col-md-6" id="search-select-div">
-                            <select class="form-select" id="search-select" required>
+                            <select class="form-select" id="search-select" name="volRetour" required>
                                 <option value="simple" selected>Aller simple</option>
                                 <option value="aller-retour">Aller-retour</option>
                             </select>
@@ -77,9 +81,11 @@
         </div>
     </div>
 
-    <?php
-        include "./footer.php";
-    ?>
+    <div id="index-footer" class="container-fluid">
+        <?php
+            include "./footer.php";
+        ?>
+    </div>
 </body>
 
 </html>

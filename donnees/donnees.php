@@ -83,9 +83,9 @@
         }
     }
 
-    $clients = [new Client(0, 'client@client.com', 'Client', 'Client')];
+    $clients_static = [new Client(0, 'client@client.com', 'Client', 'Client')];
 
-    $aeroports = [
+    $aeroports_static = [
         new Aeroport('Allemagne', 'Berlin', 'BER', 'Willy Brandt'),
         new Aeroport('Allemagne', 'Francfort', 'FRA', 'Francfort-sur-le-Main'),
         new Aeroport('Allemagne', 'Munich', 'MUC', 'Franz Josef Strauss'),
@@ -100,9 +100,9 @@
         new Aeroport('Suisse', 'Zurich', 'ZRH', 'Zurich Airport')
     ];
 
-    $modeles = [new ModeleAvion('Boeing 737-500', 6, 120, 24)];
+    $modeles_static = [new ModeleAvion('Boeing 737-500', 6, 120, 24)];
 
-    $vols = [
+    $vols_static = [
         new Vol('B737000', 'LHR', 'CDG', '04-04-2024', '12h34', '15h19', 'Boeing 737-500', '1h45'),
         new Vol('B737001', 'FRA', 'MUC', '01-02-2024', '12h34', '13h34', 'Boeing 737-500', '1h00'),
         new Vol('B737002', 'BRU', 'BER', '05-05-2024', '12h34', '14h34', 'Boeing 737-500', '2h00'),
@@ -110,7 +110,7 @@
         new Vol('B737004', 'VIE', 'WAW', '03-03-2024', '12h34', '13h49', 'Boeing 737-500', '1h15')
     ];
 
-    $billets = [
+    $billets_static = [
         new Billet('CC0B737000', 0, 'B737000', true, 152, true, 'B14')
     ];
 
