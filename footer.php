@@ -6,8 +6,8 @@
 </head>
 
 <body>
-    <footer class="container-flex shadow">
-        <nav class="navbar navbar-expand-md sticky-top">
+    <footer class="container-flex shadow bg-white">
+        <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
