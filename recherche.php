@@ -72,7 +72,7 @@
             <div class="card my-2">
                 <div class="card-header text-white bg-flyBook">
                     <i class="fa fa-ticket"></i>
-                    <b> Départ : <?php echo $vol['villeArrivee'] ?> / Arrivée : <?php echo $vol['villeDepart'] ?></b>
+                    <b> Départ : <?php echo $vol['villeDepart'] ?> / Arrivée : <?php echo $vol['villeArrivee'] ?></b>
                 </div>
 
                 <div class="card-body">
