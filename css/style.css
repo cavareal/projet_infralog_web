@@ -2,10 +2,12 @@ body {
     background-color: aliceblue;
 }
 
-footer {
-    position:sticky; 
-    bottom:0;
-    background-color:white;
+.bg-flyBook {
+    background-color: rgba(26,87,133,255);
+}
+
+header img {
+    height: 40px;
 }
 
 .bg-flyBook {
@@ -55,4 +57,10 @@ header img {
 #search-select-div {
     display: flex; 
     align-items: center;
+}
+
+#index-footer {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
 }
