@@ -26,8 +26,8 @@
     }
     ?>
 
-    <header>
-        <nav class="navbar navbar-expand-md bg-white sticky-top shadow-lg">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md bg-white shadow-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
 
