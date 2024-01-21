@@ -8,7 +8,7 @@
     <!--FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    
+
 
 
     <?php
@@ -20,18 +20,24 @@
 </head>
 
 <body>
+    <!-- Ajout du header du site -->
     <?php include "header.php" ?>
+
+    <!-- Css à charger après le header -->
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/style_seat_selector.css" rel="stylesheet">
 
     <?php
+    // Redirection s'il n'y a pas de recherche en cours
     if (empty($_GET['depart'])) {
         header("location:./");
     }
 
+    // Récuppération des vols correspondant à la recherche
     $vols = bddGetVols(getIata($_GET['depart']), getIata($_GET['arrivee']), $_GET['dateDepart']);
     ?>
 
+    <!-- Barre de navigation de la recherche -->
     <nav class="shadow bg-white p-2 border">
         <ul class="nav nav-tabs nav-justified">
             <li class="nav-item">
@@ -41,6 +47,7 @@
                 <a class="nav-link active" href="#">Vol aller</a>
             </li>
 
+            <!-- Dans le cas d'un aller simple, il n'y a pas de vol retour -->
             <?php if ($_GET['volRetour'] == 'aller-retour') { ?>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Vol retour</a>
@@ -119,7 +126,7 @@
 
     </div>
 
-    <!-- The Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -134,6 +141,7 @@
                     <!-- Modal body -->
                     <div class="modal-body">
 
+                        <!-- Sélection de la classe -->
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="card">
@@ -205,10 +213,12 @@
                             </div>
                         </div>
 
+                        <!-- Séparateur -->
                         <div class="row">
                             <hr class="my-3">
                         </div>
 
+                        <!-- Sélection de la garantie -->
                         <div class="row">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-5">
@@ -224,96 +234,106 @@
                             </div>
                             <div class="col-sm-1"></div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <hr class="my-3">
-                    </div>
+                        <!-- Séparateur -->
+                        <div class="row">
+                            <hr class="my-3">
+                        </div>
 
-                    <div>
-                        <?php
-                        $nbPlace = 120;
-                        $nbPremiere = 24;
-                        $nbColone = 6;
-                        $nbLignePremiere = intdiv($nbPremiere, $nbColone);
-                        $nbLigne = intdiv($nbPlace, $nbColone);
-                        $colones = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-                        ?>
+                        <!-- Sélection du siège -->
+                        <div>
+                            <?php
+                            $nbPlace = 120;
+                            $nbPremiere = 24;
+                            $nbColone = 6;
+                            $nbLignePremiere = intdiv($nbPremiere, $nbColone);
+                            $nbLigne = intdiv($nbPlace, $nbColone);
+                            $colones = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+                            ?>
 
 
-                        <div class="plane fuselage" style="background-color: whitesmoke;">
+                            <div class="plane fuselage" style="background-color: whitesmoke;">
 
-                            <div class="container-fluid">
+                                <div class="container-fluid">
 
-                                <?php for ($i = $nbColone - 1; $i > -1; $i--) { ?>
-                                    <div class="row colone-<?php echo $colones[$i] ?>" style="flex-wrap: nowrap;">
-                                        <?php
-                                        if (($i == 0 || $i == $nbColone - 1)) {
-                                            echo '<div class="col p-3 exit"></div>';
-                                        } else {
-                                            echo '<div class="col p-3"></div>';
-                                        }
-                                        ?>
-                                        <?php for ($p = 1; $p < $nbLignePremiere; $p++) { ?>
-                                            <div class="col">
-                                                <li class="seat premiere">
-                                                    <input type="radio" name="siege" id="<?php echo $p . $colones[$i] ?>" disabled />
-                                                    <label for="<?php echo $p . $colones[$i] ?>"><?php echo $p . $colones[$i] ?></label>
-                                                </li>
-                                            </div>
-                                        <?php } ?>
-
-                                        <div class="col px-3">
-                                            <div style="width:3px; height:100%; background-color:#d8d8d8;"></div>
-                                        </div>
-
-                                        <?php for ($y = $nbLignePremiere + 1; $y < $nbLigne + 1; $y++) { ?>
-                                            <div class="col">
-                                                <li class="seat">
-                                                    <input type="radio" name="siege" id="<?php echo $y . $colones[$i] ?>" />
-                                                    <label for="<?php echo $y . $colones[$i] ?>"><?php echo $y . $colones[$i] ?></label>
-                                                </li>
-                                            </div>
-
-                                        <?php
-                                            if (($i == 0 || $i == $nbColone - 1) && ($y % 10 == 0)) {
+                                    <?php for ($i = $nbColone - 1; $i > -1; $i--) { ?>
+                                        <div class="row colone-<?php echo $colones[$i] ?>" style="flex-wrap: nowrap;">
+                                            <?php
+                                            if (($i == 0 || $i == $nbColone - 1)) {
                                                 echo '<div class="col p-3 exit"></div>';
-                                            } else if ($y % 10 == 0) {
+                                            } else {
                                                 echo '<div class="col p-3"></div>';
                                             }
+                                            ?>
+                                            <?php for ($p = 1; $p < $nbLignePremiere; $p++) { ?>
+                                                <div class="col">
+                                                    <li class="seat premiere">
+                                                        <input type="radio" name="siege" id="<?php echo $p . $colones[$i] ?>" disabled />
+                                                        <label for="<?php echo $p . $colones[$i] ?>"><?php echo $p . $colones[$i] ?></label>
+                                                    </li>
+                                                </div>
+                                            <?php } ?>
+
+                                            <div class="col px-3">
+                                                <div style="width:3px; height:100%; background-color:#d8d8d8;"></div>
+                                            </div>
+
+                                            <?php for ($y = $nbLignePremiere + 1; $y < $nbLigne + 1; $y++) { ?>
+                                                <div class="col">
+                                                    <li class="seat">
+                                                        <input type="radio" name="siege" id="<?php echo $y . $colones[$i] ?>" />
+                                                        <label for="<?php echo $y . $colones[$i] ?>"><?php echo $y . $colones[$i] ?></label>
+                                                    </li>
+                                                </div>
+
+                                            <?php
+                                                if (($i == 0 || $i == $nbColone - 1) && ($y % 10 == 0)) {
+                                                    echo '<div class="col p-3 exit"></div>';
+                                                } else if ($y % 10 == 0) {
+                                                    echo '<div class="col p-3"></div>';
+                                                }
+                                            }
+                                            ?>
+
+                                        </div>
+                                    <?php
+                                        if ($i == 3) {
+                                            echo '<div class="row allee-centrale p-3"></div>';
                                         }
-                                        ?>
-
-                                    </div>
-                                <?php
-                                    if ($i == 3) {
-                                        echo '<div class="row allee-centrale p-3"></div>';
                                     }
-                                }
-                                ?>
+                                    ?>
+                                </div>
+
+                            </div>
+
+                            <!-- Légende de la sélection du siège -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6"><span class="leg-">XXX</span> : Légende</div>
+                                    <div class="col-6"></div>
+                                </div>
                             </div>
 
                         </div>
+                        <!-- Fien de sélection de siège -->
 
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6"><span class="leg-">XXX</span> : Légende</div>
-                                <div class="col-6"></div>
-                            </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-block bg-flyBook text-white">Valider</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
                         </div>
 
                     </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-block bg-flyBook text-white">Valider</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
-                    </div>
+
+
+
                 </form>
             </div>
         </div>
     </div>
 
+    <!-- Ajout du footer du site -->
     <?php include "footer.php" ?>
 </body>
 
