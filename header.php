@@ -27,7 +27,7 @@
     ?>
 
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-md bg-white shadow-lg">
+        <nav class="navbar navbar-expand-md bg-white shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
 
