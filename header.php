@@ -27,7 +27,7 @@
     ?>
 
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-md bg-white shadow-lg">
+        <nav class="navbar navbar-expand-md bg-white shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
 
@@ -56,7 +56,7 @@
                                                 } ?>>Mes réservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contactez-nous</a>
+                            <a class="nav-link" href="./contact.php">Contactez-nous</a>
                         </li>
                     </ul>
 
