@@ -243,16 +243,16 @@
                         <!-- Sélection de la garantie -->
                         <div class="row">
                             <div class="col-sm-1"></div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-2">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie"
                                         value="oui">
-                                    <label class="form-check-label" for="mySwitch">Garantie</label>
+                                    <label class="form-check-label" for="mySwitch">Assurance annulation</label>
                                 </div>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                                 <p>
-                                    #CONDITIONS DE GARANTIE#
+                                Le remboursement des frais liés à l'annulation d'un vol est soumis aux conditions suivantes. Tout passager ayant souscrit à l'assurance annulation en option au moment de l'achat du billet pourra prétendre à un remboursement intégral des frais en cas d'annulation. Pour être éligible, l'annulation doit être notifiée à notre service client au moins 48 heures avant l'heure de départ initialement prévue. Les passagers n'ayant pas choisi l'assurance annulation en option ne pourront prétendre à aucun remboursement en cas d'annulation, sauf en cas de circonstances exceptionnelles clairement définies dans nos conditions générales. Les demandes de remboursement doivent être accompagnées des documents justificatifs nécessaires. Il est important de noter que l'assurance annulation en option n'est pas remboursable une fois souscrite, même en cas d'annulation du vol. Nous recommandons à tous nos passagers de lire attentivement les termes et conditions de l'assurance avant de prendre une décision
                                 </p>
                             </div>
                             <div class="col-sm-1"></div>
