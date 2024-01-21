@@ -294,10 +294,9 @@
                                                     $desactive = '';
                                                 }
                                             ?>
-
                                                 <div class="col">
                                                     <li class="seat premiere">
-                                                        <input type="radio" name="siege" id="<?php echo $place ?>" <?php echo $desactive ?> />
+                                                        <input type="radio" name="siege" id="<?php echo $place ?>" value="<?php echo $place ?>" <?php echo $desactive ?> required/>
                                                         <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                                     </li>
                                                 </div>
@@ -317,7 +316,7 @@
                                             ?>
                                                 <div class="col">
                                                     <li class="seat">
-                                                        <input type="radio" name="siege" id="<?php echo $place ?>" <?php echo $desactive ?> />
+                                                        <input type="radio" name="siege" id="<?php echo $place ?>" value="<?php echo $place ?>" <?php echo $desactive ?> />
                                                         <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                                     </li>
                                                 </div>
@@ -346,40 +345,49 @@
                             <!-- Légende de la sélection du siège -->
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-1"></div>
+                                <div class="col-1">
+                        <li class="seat legende">
+                            <input type="radio" id="siegeLibrePremiereLegende" disabled />
+                            <label for="siegeLibrePremiereLegende">XXX</label>
+                        </li>
+                    </div>
 
-                                    <div class="col-1">
-                                        <li class="seat legende">
-                                            <input type="radio" id="siegeLibreLegende" checked />
-                                            <label for="siegeLibreLegende">XXX</label>
-                                        </li>
-                                    </div>
+                    <div class="col-2" style="align-items: center; display: flex;">
+                        Sièges première classe libres
+                    </div>
 
-                                    <div class="col-2" style="align-items: center; display: flex;">
-                                        Places libres
-                                    </div>
+                    <div class="col-1">
+                        <li class="seat legende">
+                            <input type="radio" id="siegeLibreLegende" disabled />
+                            <label for="siegeLibreLegende">XXX</label>
+                        </li>
+                    </div>
 
-                                    <div class="col-1">
-                                        <li class="seat legende">
-                                            <input type="radio" id="siegeReserveLegende" disabled />
-                                            <label for="siegeReserveLegende">XXX</label>
-                                        </li>
-                                    </div>
+                    <div class="col-2" style="align-items: center; display: flex;">
+                        Sièges standards libres
+                    </div>
 
-                                    <div class="col-2" style="align-items: center; display: flex;">
-                                        Places déjà réservées
-                                    </div>
+                    <div class="col-1">
+                        <li class="seat legende">
+                            <input type="radio" id="siegeReserveLegende" disabled />
+                            <label for="siegeReserveLegende">XXX</label>
+                        </li>
+                    </div>
 
-                                    <div class="col-1">
-                                        <li class="seat legende">
-                                            <input type="radio" id="siegeSelectioneeLegende" checked readonly />
-                                            <label for="siegeSelectioneeLegende">XXX</label>
-                                        </li>
-                                    </div>
+                    <div class="col-2" style="align-items: center; display: flex;">
+                        Sièges réservés
+                    </div>
 
-                                    <div class="col-2" style="align-items: center; display: flex;">
-                                        Place sélectionnée
-                                    </div>
+                    <div class="col-1">
+                        <li class="seat legende">
+                            <input type="radio" id="siegeSelectioneLegende" disabled />
+                            <label for="siegeSelectioneLegende">XXX</label>
+                        </li>
+                    </div>
+
+                    <div class="col-2" style="align-items: center; display: flex;">
+                        Siège sélectionné
+                    </div>
                                 </div>
                             </div>
 
