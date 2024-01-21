@@ -26,10 +26,12 @@ if (isset($_POST['sauvegarder'])) {
     $nouvelleDateNaissance = $_POST['datenaissance'];
     $nouvelEmail = $_POST['email'];
 
-    // Exécution de la requête
-    $sqli = "UPDATE fly_book_eseo.Client SET prenom='$nouveauPrenom', nom='$nouveauNom', dateNaissance='$nouvelleDateNaissance', email='$nouvelEmail' WHERE id='" . $_SESSION['pseudo'] . "'";
-    $conn->query($sqli);
-    header("Refresh:0");
+    if (verification_info($nouveauPrenom, $nouveauNom, $nouvelleDateNaissance, $nouvelEmail)) {
+        // Exécution de la requête
+        $sqli = "UPDATE fly_book_eseo.Client SET prenom='$nouveauPrenom', nom='$nouveauNom', dateNaissance='$nouvelleDateNaissance', email='$nouvelEmail' WHERE id='" . $_SESSION['pseudo'] . "'";
+        $conn->query($sqli);
+        header('Location: profile.php');
+    }
 }
 
 //Changement du bouton modifier en bouton de sauvegarde
@@ -42,4 +44,48 @@ function modif_sauv($conn)
     }
 }
 
+function verification_info($nouveauPrenom, $nouveauNom, $nouvelleDateNaissance, $nouvelEmail)
+{
+    $conn = bdd_connect();
+
+    // Vérifier que le prénom et le nom ne sont pas vides ou composés uniquement d'espaces
+    if (empty($nouveauPrenom) || empty($nouveauNom) || ctype_space($nouveauPrenom) || ctype_space($nouveauNom)) {
+        header('Location: profile.php?erreur=1');
+        exit(); // Arrêter l'exécution du script
+    }
+
+
+    //Vérifie si le mail est conforme
+    if (!empty($nouvelEmail) && strpos($nouvelEmail, '@') && (strlen($nouvelEmail) > 5)) {
+        //Vérifie si le mail existe
+        $stmt = $conn->prepare('SELECT * FROM fly_book_eseo.Client WHERE email=? AND id <> ?');
+        $stmt->bind_param('si', $nouvelEmail, $_SESSION['pseudo']);
+        $stmt->execute();
+        $resultat = $stmt->get_result();
+
+        if ($resultat->num_rows > 0) {
+            header('Location: profile.php?erreur=2');
+            exit(); // Arrêter l'exécution du script
+        }
+    } else {
+        header('Location: profile.php?erreur=3');
+        exit(); // Arrêter l'exécution du script
+    }
+
+    return true;
+}
+
+if (isset($_GET['erreur'])) {
+    $err = $_GET['erreur'];
+    if ($err == 1) {
+        $messageErreur = "Le nom ou le prénom est mal renseigné.";
+    }
+    if ($err == 2) {
+        $messageErreur = "L'adresse mail que vous souhaitez utiliser est déjà utilisée.";
+    }
+    if ($err == 3) {
+        $messageErreur = "L'adresse mail que vous avez rentré n'existe pas.";
+    }
+
+}
 ?>

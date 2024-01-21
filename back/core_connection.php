@@ -40,12 +40,20 @@ if (isset($_POST['email_inscri']) && isset($_POST['motdepasse_inscri'])) {
     $email_inscri = htmlspecialchars($_POST['email_inscri']);
     $mdp_inscri = htmlspecialchars($_POST['motdepasse_inscri']);
     $mdp_confirm = htmlspecialchars($_POST['motdepasseconfirm']);
+    $nom_inscri = trim($_POST['nom_inscri']);
+    $prenom_inscri = trim($_POST['prenom_inscri']);
+
+    // Vérifier que le prénom et le nom ne sont pas vides ou composés uniquement d'espaces
+    if (empty($nom_inscri) || empty($prenom_inscri) || ctype_space($nom_inscri) || ctype_space($prenom_inscri)) {
+        header('Location: connection.php?form=inscription&erreur=8');
+        exit(); // Arrêter l'exécution du script
+    }
 
     if (!empty($email_inscri) && !empty($mdp_inscri)) {
         //Vérifie si le mail est conforme
-        if (strpos($email_inscri, '@')) {
+        if (strpos($email_inscri, '@') && (strlen($email_inscri)>5)) {
             //Vérifie si le mail existe
-            $stmt = $conn->prepare('SELECT * FROM Client WHERE email=?');
+            $stmt = $conn->prepare('SELECT * FROM fly_book_eseo.Client WHERE email=?');
             $stmt->bind_param('s', $email_inscri);
             $stmt->execute();
             $resultat = $stmt->get_result();
@@ -129,13 +137,16 @@ if (isset($_GET['erreur'])) {
         $messageErreur = "L'adresse mail que vous souhaitez utiliser est déjà utilisée.";
     }
     if ($err == 5) {
-        $messageErreur = "l'adresse mail que vous avez rentré n'existe pas.";
+        $messageErreur = "L'adresse mail que vous avez rentré n'existe pas.";
     }
     if ($err == 6) {
         $messageErreur = "Veuillez rentrer des valeurs.";
     }
     if ($err == 7) {
         $messageErreur = "La confirmation du mot de passe n'est pas bonne.";
+    }
+    if ($err == 8) {
+        $messageErreur = "Le nom ou le prénom est mal renseigné.";
     }
 }
 
