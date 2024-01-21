@@ -10,6 +10,7 @@
 
     <link href="./css/style.css" rel="stylesheet">
 
+
     <?php
     include "./donnees/donnees.php";
     include "./back/core_recherche.php";
@@ -20,6 +21,7 @@
 
 <body>
     <?php include "header.php" ?>
+    <link href="./css/style_seat_selector.css" rel="stylesheet">
 
     <?php
     if (empty($_GET['depart'])) {
@@ -45,10 +47,10 @@
             <?php } ?>
 
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Récapitulatif</a>
+                <a class="nav-link disabled" href="#">Link</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Paiement</a>
+                <a class="nav-link disabled" href="#">Link</a>
             </li>
         </ul>
     </nav>
@@ -143,7 +145,7 @@
                                             <li class="list-group-item barre">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-1" class="radio-btn" required>
+                                            <input type="radio" name="classe" id="classe-1" class="radio-btn">
                                             <label for="classe-1">Sélectionner</label>
                                         </div>
                                     </div>
@@ -160,7 +162,7 @@
                                             <li class="list-group-item">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-2" class="radio-btn" required>
+                                            <input type="radio" name="classe" id="classe-2" class="radio-btn">
                                             <label for="classe-2">Sélectionner</label>
                                         </div>
                                     </div>
@@ -177,7 +179,7 @@
                                             <li class="list-group-item barre">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-3" class="radio-btn"required>
+                                            <input type="radio" name="classe" id="classe-3" class="radio-btn">
                                             <label for="classe-3">Sélectionner</label>
                                         </div>
                                     </div>
@@ -194,7 +196,7 @@
                                             <li class="list-group-item">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-4" class="radio-btn"required>
+                                            <input type="radio" name="classe" id="classe-4" class="radio-btn">
                                             <label for="classe-4">Sélectionner</label>
                                         </div>
                                     </div>
@@ -221,6 +223,84 @@
                             </div>
                             <div class="col-sm-1"></div>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        <hr class="my-3">
+                    </div>
+
+                    <div>
+                        <?php
+                        $nbPlace = 120;
+                        $nbPremiere = 24;
+                        $nbColone = 6;
+                        $nbLignePremiere = intdiv($nbPremiere, $nbColone);
+                        $nbLigne = intdiv($nbPlace, $nbColone);
+                        $colones = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+                        ?>
+
+
+                        <div class="plane fuselage" style="background-color: whitesmoke;">
+
+                            <div class="container-fluid">
+
+                                <?php for ($i = $nbColone - 1; $i > -1; $i--) { ?>
+                                    <div class="row colone-<?php echo $colones[$i] ?>" style="flex-wrap: nowrap;">
+                                        <?php
+                                        if (($i == 0 || $i == $nbColone - 1)) {
+                                            echo '<div class="col p-3 exit"></div>';
+                                        } else {
+                                            echo '<div class="col p-3"></div>';
+                                        }
+                                        ?>
+                                        <?php for ($p = 1; $p < $nbLignePremiere; $p++) { ?>
+                                            <div class="col">
+                                                <li class="seat premiere">
+                                                    <input type="radio" name="siege" id="<?php echo $p . $colones[$i] ?>" disabled />
+                                                    <label for="<?php echo $p . $colones[$i] ?>"><?php echo $p . $colones[$i] ?></label>
+                                                </li>
+                                            </div>
+                                        <?php } ?>
+
+                                        <div class="col px-3">
+                                            <div style="width:3px; height:100%; background-color:#d8d8d8;"></div>
+                                        </div>
+
+                                        <?php for ($y = $nbLignePremiere + 1; $y < $nbLigne + 1; $y++) { ?>
+                                            <div class="col">
+                                                <li class="seat">
+                                                    <input type="radio" name="siege" id="<?php echo $y . $colones[$i] ?>" />
+                                                    <label for="<?php echo $y . $colones[$i] ?>"><?php echo $y . $colones[$i] ?></label>
+                                                </li>
+                                            </div>
+
+                                        <?php
+                                            if (($i == 0 || $i == $nbColone - 1) && ($y % 10 == 0)) {
+                                                echo '<div class="col p-3 exit"></div>';
+                                            } else if ($y % 10 == 0) {
+                                                echo '<div class="col p-3"></div>';
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
+                                <?php
+                                    if ($i == 3) {
+                                        echo '<div class="row allee-centrale p-3"></div>';
+                                    }
+                                }
+                                ?>
+                            </div>
+
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6"><span class="leg-">XXX</span></div>
+                                <div class="col-6"></div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <!-- Modal footer -->
