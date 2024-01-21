@@ -8,7 +8,7 @@ function bddGetVols($depart, $arrivee, $dateDepart)
 {
     $bdd = bdd_connect();
 
-    $sql = "SELECT V.numeroVol, V.dateHeureLocaleDepart AS 'dateHeureDepart', V.dateHeureLocaleArrivee AS 'dateHeureArrivee', V.dureeVol, V.modeleAvion, D.acronyme AS 'iataDepart', D.ville AS 'villeDepart', D.pays AS 'paysDepart', D.nom AS 'nomDepart', A.acronyme AS 'iataArrivee', A.ville AS 'villeArrivee', A.pays AS 'paysArrivee', A.nom AS 'nomArrivee' FROM fly_book_eseo.Vol V, fly_book_eseo.Aeroport D, fly_book_eseo.Aeroport A WHERE V.depart = D.acronyme AND V.arrivee = A.acronyme AND V.depart = '$depart' AND V.arrivee = '$arrivee' AND V.dateHeureLocaleDepart > '$dateDepart';";
+    $sql = "SELECT V.numeroVol, V.dateHeureLocaleDepart AS 'dateHeureDepart', V.dateHeureLocaleArrivee AS 'dateHeureArrivee', V.dureeVol, V.modeleAvion, V.prixStandard, D.acronyme AS 'iataDepart', D.ville AS 'villeDepart', D.pays AS 'paysDepart', D.nom AS 'nomDepart', A.acronyme AS 'iataArrivee', A.ville AS 'villeArrivee', A.pays AS 'paysArrivee', A.nom AS 'nomArrivee' FROM fly_book_eseo.Vol V, fly_book_eseo.Aeroport D, fly_book_eseo.Aeroport A WHERE V.depart = D.acronyme AND V.arrivee = A.acronyme AND V.depart = '$depart' AND V.arrivee = '$arrivee' AND V.dateHeureLocaleDepart > '$dateDepart' ORDER BY dateHeureLocaleDepart;";
 
     $result = $bdd->query($sql);
 
