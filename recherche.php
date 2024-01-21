@@ -16,7 +16,9 @@
     include "./back/core_recherche.php";
     ?>
 
-    <title><?php echo $SITE_TITRE ?> - Recherche</title>
+    <title>
+        <?php echo $SITE_TITRE ?> - Recherche
+    </title>
 </head>
 
 <body>
@@ -65,59 +67,78 @@
 
     <div class="container-fluid bg-white shadow mt-4 mb-5">
         <div class="row">
-            <h1><b>Vols <?php echo explode(" ", $_GET['depart'])[0] . ' - ' . explode(" ", $_GET['arrivee'])[0] . " à partir du " . date("d/m/Y", strtotime($_GET['dateDepart'])) ?></b></h1>
+            <h1><b>Vols
+                    <?php echo explode(" ", $_GET['depart'])[0] . ' - ' . explode(" ", $_GET['arrivee'])[0] . " à partir du " . date("d/m/Y", strtotime($_GET['dateDepart'])) ?>
+                </b></h1>
         </div>
 
         <div class="row">
             <h4><b>Résultats (<?php echo count($vols) //Il n'y a pas d'erreur sur cette ligne ($vols est bien un array) 
-                                ?>):</b></h4>
+                        ?>):
+                </b></h4>
         </div>
     </div>
 
-    <div class="container bg-white border mt-5 mb-5" style="border-radius: 5px;">
+    <div class="container mt-5 mb-5" style="border-radius: 5px;">
 
         <?php
         // Il n'y a pas d'erreur sur cette ligne non plus ($vols est bien un array)
         for ($i = 0; $i < count($vols); $i++) {
             $vol = $vols[$i];
-        ?>
+            ?>
 
             <div class="card my-2">
                 <div class="card-header text-white bg-flyBook">
                     <i class="fa fa-ticket"></i>
-                    <b> Départ : <?php echo $vol['villeDepart'] ?> / Arrivée : <?php echo $vol['villeArrivee'] ?></b>
+                    <b> Départ :
+                        <?php echo $vol['villeDepart'] ?> / Arrivée :
+                        <?php echo $vol['villeArrivee'] ?>
+                    </b>
                 </div>
 
                 <div class="card-body">
+                    <!-- Départ -->
                     <div class="row">
-                        <div class="col-sm-8">
-                            <p>
-                                Date de départ: <?php echo str_replace("-", "/", $vol['dateHeureDepart']) ?>
-                                <br>
-                                Lieu: <?php echo $vol['nomDepart'] . ', ' . $vol['villeDepart'] . ', ' . strtoupper($vol['paysDepart']) ?>
+                        <div class="col-sm-1 d-flex align-items-center">
+                            <i class="fa fa-plane-departure fa-2x" id="dep_icone"></i>
+                        </div>
+                        <div class="col-sm-7">
+                            <p class="mb-0">
+                                <strong>Date de départ:</strong>
+                                <?php echo date('d/m/Y H:i', strtotime($vol['dateHeureDepart'])); ?>
+                            </p>
+                            <p class="mb-0">
+                                <strong>Lieu:</strong>
+                                <?php echo $vol['nomDepart'] . ', ' . $vol['villeDepart'] . ', ' . strtoupper($vol['paysDepart']); ?>
                             </p>
                         </div>
-
-                        <div class="col-sm-4"><!-- style="display: flex; justify-content:center; align-items:center;"> -->
-                            <div class="d-grid my-2">
-                                <button class="btn btn-lg bg-flyBook text-white" data-bs-toggle="modal" data-bs-target="#myModal">À partir de <br> <b><?php echo $vol['prixStandard'] ?> €</b></button>
-                            </div>
+                        <div class="col-sm-4 d-flex align-items-center justify-content-center">
+                            <img src="./images/logo_nom.png" alt="Logo-favicon.png" class="img-fluid" style="max-width: 200px; max-height: 200px;">
                         </div>
                     </div>
 
+                    <!-- Arrivée -->
                     <div class="row">
-                        <div class="col-sm-8">
-                            <p>
-                                Date d'arrivée: <?php echo str_replace("-", "/", $vol['dateHeureArrivee']) ?>
-                                <br>
-                                Lieu: <?php echo $vol['nomArrivee'] . ', ' . $vol['villeArrivee'] . ', ' . strtoupper($vol['paysArrivee']) ?>
+                        <div class="col-sm-1 d-flex align-items-center">
+                            <i class="fa fa-plane-arrival fa-2x"></i>
+                        </div>
+                        <div class="col-sm-7"><br>
+                            <p class="mb-0">
+                                <strong>Date d'arrivée:</strong>
+                                <?php echo date('d/m/Y H:i', strtotime($vol['dateHeureArrivee'])); ?>
+                            </p>
+                            <p class="mb-0">
+                                <strong>Lieu:</strong>
+                                <?php echo $vol['nomArrivee'] . ', ' . $vol['villeArrivee'] . ', ' . strtoupper($vol['paysArrivee']); ?>
                             </p>
                         </div>
-
-                        <div class="col-sm-4"><!-- style="display: flex; justify-content:center; align-items:center;"> -->
-                            <div class="d-grid my-2">
-                                <button class="btn btn-lg bg-flyBook text-white" data-bs-toggle="modal" data-bs-target="#myModal">À partir de <br> <b><?php echo $vol['prixStandard'] ?> €</b></button>
-                            </div>
+                        <div class="col-sm-4 d-flex align-items-center justify-content-center">
+                            <button class="btn btn-lg bg-flyBook text-white w-75 " id="reservation_btn"
+                                data-bs-toggle="modal" data-bs-target="#myModal">
+                                À partir de <br> <b>
+                                    <?php echo $vol['prixStandard'] ?> €
+                                </b>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -224,7 +245,8 @@
                             <div class="col-sm-1"></div>
                             <div class="col-sm-5">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie" value="oui">
+                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie"
+                                        value="oui">
                                     <label class="form-check-label" for="mySwitch">Garantie</label>
                                 </div>
                             </div>
@@ -269,8 +291,11 @@
                                             <?php for ($p = 1; $p < $nbLignePremiere; $p++) { ?>
                                                 <div class="col">
                                                     <li class="seat premiere">
-                                                        <input type="radio" name="siege" id="<?php echo $p . $colones[$i] ?>" disabled />
-                                                        <label for="<?php echo $p . $colones[$i] ?>"><?php echo $p . $colones[$i] ?></label>
+                                                        <input type="radio" name="siege" id="<?php echo $p . $colones[$i] ?>"
+                                                            disabled />
+                                                        <label for="<?php echo $p . $colones[$i] ?>">
+                                                            <?php echo $p . $colones[$i] ?>
+                                                        </label>
                                                     </li>
                                                 </div>
                                             <?php } ?>
@@ -283,11 +308,13 @@
                                                 <div class="col">
                                                     <li class="seat">
                                                         <input type="radio" name="siege" id="<?php echo $y . $colones[$i] ?>" />
-                                                        <label for="<?php echo $y . $colones[$i] ?>"><?php echo $y . $colones[$i] ?></label>
+                                                        <label for="<?php echo $y . $colones[$i] ?>">
+                                                            <?php echo $y . $colones[$i] ?>
+                                                        </label>
                                                     </li>
                                                 </div>
 
-                                            <?php
+                                                <?php
                                                 if (($i == 0 || $i == $nbColone - 1) && ($y % 10 == 0)) {
                                                     echo '<div class="col p-3 exit"></div>';
                                                 } else if ($y % 10 == 0) {
@@ -297,7 +324,7 @@
                                             ?>
 
                                         </div>
-                                    <?php
+                                        <?php
                                         if ($i == 3) {
                                             echo '<div class="row allee-centrale p-3"></div>';
                                         }
