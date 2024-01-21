@@ -97,7 +97,8 @@ ol {
     cursor: not-allowed;
 }
 
-.seat label {
+.seat label,
+#siegeLibreLegende:checked+label {
     color: white;
     display: block;
     position: relative;
@@ -207,4 +208,8 @@ ol {
 
 .col {
     padding: 0;
+}
+
+.seat.legende {
+    float: right;
 }

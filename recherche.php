@@ -8,9 +8,6 @@
     <!--FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
-
-
     <?php
     include "./donnees/donnees.php";
     include "./back/core_recherche.php";
@@ -74,7 +71,7 @@
 
         <div class="row">
             <h4><b>Résultats (<?php echo count($vols) //Il n'y a pas d'erreur sur cette ligne ($vols est bien un array) 
-                        ?>):
+                                ?>):
                 </b></h4>
         </div>
     </div>
@@ -85,7 +82,7 @@
         // Il n'y a pas d'erreur sur cette ligne non plus ($vols est bien un array)
         for ($i = 0; $i < count($vols); $i++) {
             $vol = $vols[$i];
-            ?>
+        ?>
 
             <div class="card my-2">
                 <div class="card-header text-white bg-flyBook">
@@ -133,8 +130,7 @@
                             </p>
                         </div>
                         <div class="col-sm-4 d-flex align-items-center justify-content-center">
-                            <button class="btn btn-lg bg-flyBook text-white w-75 " id="reservation_btn"
-                                data-bs-toggle="modal" data-bs-target="#myModal">
+                            <button class="btn btn-lg bg-flyBook text-white w-75 " id="reservation_btn" data-bs-toggle="modal" data-bs-target="#myModal">
                                 À partir de <br> <b>
                                     <?php echo $vol['prixStandard'] ?> €
                                 </b>
@@ -169,7 +165,9 @@
                                 <div class="card">
                                     <img class="card-img-top" src="./images/cabine.jpg" alt="Card image">
                                     <div class="card-body">
-                                        <h4 class="card-title">Classe standard</h4>
+                                        <h4 class="card-title">Classe standard<br>
+                                            <pre> </pre>
+                                        </h4>
                                         <ul class="list-group">
                                             <li class="list-group-item">Une place standard</li>
                                             <li class="list-group-item">Un bagage cabine</li>
@@ -203,7 +201,9 @@
                                 <div class="card">
                                     <img class="card-img-top" src="./images/cabine.jpg" alt="Card image">
                                     <div class="card-body">
-                                        <h4 class="card-title">Première classe</h4>
+                                        <h4 class="card-title">Première classe<br>
+                                            <pre> </pre>
+                                        </h4>
                                         <ul class="list-group">
                                             <li class="list-group-item">Une place première classe</li>
                                             <li class="list-group-item">Un bagage cabine</li>
@@ -245,14 +245,13 @@
                             <div class="col-sm-1"></div>
                             <div class="col-sm-2">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie"
-                                        value="oui">
+                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie" value="oui">
                                     <label class="form-check-label" for="mySwitch">Assurance annulation</label>
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <p>
-                                Le remboursement des frais liés à l'annulation d'un vol est soumis aux conditions suivantes. Tout passager ayant souscrit à l'assurance annulation en option au moment de l'achat du billet pourra prétendre à un remboursement intégral des frais en cas d'annulation. Pour être éligible, l'annulation doit être notifiée à notre service client au moins 48 heures avant l'heure de départ initialement prévue. Les passagers n'ayant pas choisi l'assurance annulation en option ne pourront prétendre à aucun remboursement en cas d'annulation, sauf en cas de circonstances exceptionnelles clairement définies dans nos conditions générales. Les demandes de remboursement doivent être accompagnées des documents justificatifs nécessaires. Il est important de noter que l'assurance annulation en option n'est pas remboursable une fois souscrite, même en cas d'annulation du vol. Nous recommandons à tous nos passagers de lire attentivement les termes et conditions de l'assurance avant de prendre une décision
+                                    Le remboursement des frais liés à l'annulation d'un vol est soumis aux conditions suivantes. Tout passager ayant souscrit à l'assurance annulation en option au moment de l'achat du billet pourra prétendre à un remboursement intégral des frais en cas d'annulation. Pour être éligible, l'annulation doit être notifiée à notre service client au moins 48 heures avant l'heure de départ initialement prévue. Les passagers n'ayant pas choisi l'assurance annulation en option ne pourront prétendre à aucun remboursement en cas d'annulation, sauf en cas de circonstances exceptionnelles clairement définies dans nos conditions générales. Les demandes de remboursement doivent être accompagnées des documents justificatifs nécessaires. Il est important de noter que l'assurance annulation en option n'est pas remboursable une fois souscrite, même en cas d'annulation du vol. Nous recommandons à tous nos passagers de lire attentivement les termes et conditions de l'assurance avant de prendre une décision
                                 </p>
                             </div>
                             <div class="col-sm-1"></div>
@@ -266,36 +265,40 @@
                         <!-- Sélection du siège -->
                         <div>
                             <?php
-                            $nbPlace = 120;
-                            $nbPremiere = 24;
-                            $nbColone = 6;
-                            $nbLignePremiere = intdiv($nbPremiere, $nbColone);
-                            $nbLigne = intdiv($nbPlace, $nbColone);
+                            $placesOccupees = bddGetPlacesOccupees('B737000', 'LHR', 'CDG', '2024/04/06 12:34');
+                            $carac = bddGetAvionCarac('B737000', 'LHR', 'CDG', '2024/04/06 12:34');
+                            $nbColonne = $carac['nbColonne'];
+                            $nbLignePremiere = intdiv($carac['nbPremiereClasse'], $nbColonne);
+                            $nbLigne = intdiv($carac['nbPassager'], $nbColonne);
                             $colones = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
                             ?>
-
-
+                            
                             <div class="plane fuselage" style="background-color: whitesmoke;">
 
                                 <div class="container-fluid">
 
-                                    <?php for ($i = $nbColone - 1; $i > -1; $i--) { ?>
+                                    <?php for ($i = $nbColonne - 1; $i > -1; $i--) { ?>
                                         <div class="row colone-<?php echo $colones[$i] ?>" style="flex-wrap: nowrap;">
                                             <?php
-                                            if (($i == 0 || $i == $nbColone - 1)) {
+                                            if (($i == 0 || $i == $nbColonne - 1)) {
                                                 echo '<div class="col p-3 exit"></div>';
                                             } else {
                                                 echo '<div class="col p-3"></div>';
                                             }
                                             ?>
-                                            <?php for ($p = 1; $p < $nbLignePremiere; $p++) { ?>
+                                            <?php for ($p = 1; $p < $nbLignePremiere; $p++) {
+                                                $place = $p . $colones[$i];
+                                                if (in_array($place, $placesOccupees)) {
+                                                    $desactive = "disabled";
+                                                } else {
+                                                    $desactive = '';
+                                                }
+                                            ?>
+
                                                 <div class="col">
                                                     <li class="seat premiere">
-                                                        <input type="radio" name="siege" id="<?php echo $p . $colones[$i] ?>"
-                                                            disabled />
-                                                        <label for="<?php echo $p . $colones[$i] ?>">
-                                                            <?php echo $p . $colones[$i] ?>
-                                                        </label>
+                                                        <input type="radio" name="siege" id="<?php echo $place ?>" <?php echo $desactive ?> />
+                                                        <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                                     </li>
                                                 </div>
                                             <?php } ?>
@@ -304,18 +307,23 @@
                                                 <div style="width:3px; height:100%; background-color:#d8d8d8;"></div>
                                             </div>
 
-                                            <?php for ($y = $nbLignePremiere + 1; $y < $nbLigne + 1; $y++) { ?>
+                                            <?php for ($y = $nbLignePremiere + 1; $y < $nbLigne + 1; $y++) {
+                                                $place = $y . $colones[$i];
+                                                if (in_array($place, $placesOccupees)) {
+                                                    $desactive = "disabled";
+                                                } else {
+                                                    $desactive = '';
+                                                }
+                                            ?>
                                                 <div class="col">
                                                     <li class="seat">
-                                                        <input type="radio" name="siege" id="<?php echo $y . $colones[$i] ?>" />
-                                                        <label for="<?php echo $y . $colones[$i] ?>">
-                                                            <?php echo $y . $colones[$i] ?>
-                                                        </label>
+                                                        <input type="radio" name="siege" id="<?php echo $place ?>" <?php echo $desactive ?> />
+                                                        <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                                     </li>
                                                 </div>
 
-                                                <?php
-                                                if (($i == 0 || $i == $nbColone - 1) && ($y % 10 == 0)) {
+                                            <?php
+                                                if (($i == 0 || $i == $nbColonne - 1) && ($y % 10 == 0)) {
                                                     echo '<div class="col p-3 exit"></div>';
                                                 } else if ($y % 10 == 0) {
                                                     echo '<div class="col p-3"></div>';
@@ -324,21 +332,54 @@
                                             ?>
 
                                         </div>
-                                        <?php
+                                    <?php
                                         if ($i == 3) {
                                             echo '<div class="row allee-centrale p-3"></div>';
                                         }
                                     }
                                     ?>
-                                </div>
 
+
+                                </div>
                             </div>
 
                             <!-- Légende de la sélection du siège -->
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-6"><span class="leg-">XXX</span> : Légende</div>
-                                    <div class="col-6"></div>
+                                    <div class="col-1"></div>
+
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeLibreLegende" checked />
+                                            <label for="siegeLibreLegende">XXX</label>
+                                        </li>
+                                    </div>
+
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Places libres
+                                    </div>
+
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeReserveLegende" disabled />
+                                            <label for="siegeReserveLegende">XXX</label>
+                                        </li>
+                                    </div>
+
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Places déjà réservées
+                                    </div>
+
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeSelectioneeLegende" checked readonly />
+                                            <label for="siegeSelectioneeLegende">XXX</label>
+                                        </li>
+                                    </div>
+
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Place sélectionnée
+                                    </div>
                                 </div>
                             </div>
 
