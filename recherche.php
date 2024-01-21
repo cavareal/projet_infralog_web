@@ -47,10 +47,10 @@
             <?php } ?>
 
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Link</a>
+                <a class="nav-link disabled" href="#">Récapitulatif</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Link</a>
+                <a class="nav-link disabled" href="#">Paiement</a>
             </li>
         </ul>
     </nav>
