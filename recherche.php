@@ -8,7 +8,7 @@
     <!--FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <link href="./css/style.css" rel="stylesheet">
+    
 
 
     <?php
@@ -21,6 +21,7 @@
 
 <body>
     <?php include "header.php" ?>
+    <link href="./css/style.css" rel="stylesheet">
     <link href="./css/style_seat_selector.css" rel="stylesheet">
 
     <?php
@@ -296,7 +297,7 @@
 
                         <div class="container">
                             <div class="row">
-                                <div class="col-6"><span class="leg-">XXX</span></div>
+                                <div class="col-6"><span class="leg-">XXX</span> : Légende</div>
                                 <div class="col-6"></div>
                             </div>
                         </div>
