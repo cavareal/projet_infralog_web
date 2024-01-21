@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contactez-nous</a>
+                        <a class="nav-link" href="./contact.php">Contactez-nous</a>
                     </li>
                 </ul>
             </div>
