@@ -63,20 +63,21 @@
         </ul>
     </nav>
 
-    <div class="container-fluid mt-4 mb-5">
-        <h1><b><?php echo explode(" ", $_GET['depart'])[0] . ' - ' . explode(" ", $_GET['arrivee'])[0] ?></b></h1>
-    </div>
+    <div class="container-fluid bg-white shadow mt-4 mb-5">
+        <div class="row">
+            <h1><b>Vols <?php echo explode(" ", $_GET['depart'])[0] . ' - ' . explode(" ", $_GET['arrivee'])[0] . " à partir du " . date("d/m/Y", strtotime($_GET['dateDepart'])) ?></b></h1>
+        </div>
 
-    <div class="container-fluid bg-white shadow">
-        <h3>#Filtres#</h3>
+        <div class="row">
+            <h4><b>Résultats (<?php echo count($vols) //Il n'y a pas d'erreur sur cette ligne ($vols est bien un array) 
+                                ?>):</b></h4>
+        </div>
     </div>
-
-    <!-- Il n'y a pas d'erreur sur cette ligne -->
-    <h4><b>Résultats (<?php echo count($vols) ?>):</b></h4>
 
     <div class="container bg-white border mt-5 mb-5" style="border-radius: 5px;">
 
         <?php
+        // Il n'y a pas d'erreur sur cette ligne non plus ($vols est bien un array)
         for ($i = 0; $i < count($vols); $i++) {
             $vol = $vols[$i];
         ?>
