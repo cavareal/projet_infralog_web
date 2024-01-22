@@ -21,9 +21,9 @@
     <div class="container " style="border-radius: 5px; margin-top: 100px;">
 
         <div class="card my-2">
-        <div class="card-header text-white bg-flyBook">
-        <h4>Formulaire de Paiement</h4>
-        </div>
+            <div class="card-header text-white bg-flyBook">
+                <h4>Formulaire de Paiement</h4>
+            </div>
             <div class="card-body">
                 <br>
                 <div class="row">
@@ -34,36 +34,31 @@
                             <!-- Informations de la carte -->
                             <div class="form-group">
                                 <label for="card_number">Numéro de carte :</label>
-                                <input type="text" class="form-control" name="card_number" id="card_number"
-                                    placeholder="Numéro de carte" required>
+                                <input type="text" class="form-control" name="card_number" id="card_number" placeholder="Numéro de carte" required>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="expiration_date">Date d'expiration :</label>
-                                    <input type="text" class="form-control" name="expiration_date" id="expiration_date"
-                                        placeholder="MM/YY" required>
+                                    <input type="text" class="form-control" name="expiration_date" id="expiration_date" placeholder="MM/YY" required>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="cvv">CVV :</label>
-                                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV"
-                                        required>
+                                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required>
                                 </div>
                             </div>
 
                             <!-- Informations du titulaire de la carte -->
                             <div class="form-group">
                                 <label for="card_holder_name">Titulaire de la carte :</label>
-                                <input type="text" class="form-control" name="card_holder_name" id="card_holder_name"
-                                    placeholder="Nom du titulaire" required>
+                                <input type="text" class="form-control" name="card_holder_name" id="card_holder_name" placeholder="Nom du titulaire" required>
                             </div>
 
                             <!-- Montant à payer -->
                             <div class="form-group">
                                 <label for="amount">Montant à payer :</label>
-                                <input type="text" class="form-control" name="amount" id="amount"
-                                    placeholder="Montant en euros" required>
+                                <input type="text" class="form-control" name="amount" id="amount" placeholder="Montant en euros" required>
                             </div>
 
                             <!-- Bouton de soumission -->
@@ -74,18 +69,14 @@
                     </div>
                     <div class="col-sm-4 d-flex align-items-center justify-content-center"><img src="images/carte_logo.jpg" style="max-width: 300px; max-height: 300px;" class="img-fluid"></div>
                 </div>
-                <p><em>* Vous n'êtes pas vraiment obligés de rentrer vos coordonnées bancaires pour vos tests.
-                             Mais si vous vous sentez d'humeur charitable le groupe 7 sera heureux d'accepter toute donation.</em></p>
+                <p><em>* Vous n'êtes pas vraiment obligés de rentrer vos coordonnées bancaires pour vos tests. Mais si vous vous sentez d'humeur charitable le groupe 7 sera heureux d'accepter toute donation.</em></p>
             </div>
         </div>
     </div>
 
-    <!-- Ajout du footer du site -->
-    <div id="index-footer" class="container-fluid">
-        <?php
-        include "./footer.php";
-        ?>
-    </div>
+    <?php
+    include "./footer.php";
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
