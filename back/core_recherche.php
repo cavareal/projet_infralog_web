@@ -50,39 +50,10 @@ function bddGetAeroport()
     return $aeroports;
 }
 
-function getIata($aeroports)
+function getIata($aeroport)
 {
-    $index = strpos($aeroports, "(");
-    return substr($aeroports, $index + 1, 3);
-}
-
-function bddGetPlacesOccupees($numeroVol, $depart, $arrivee, $dateDepart)
-{
-    $bdd = bdd_connect();
-
-    $sql = "SELECT B.place FROM fly_book_eseo.Billet B, fly_book_eseo.Vol V WHERE B.numeroVol = V.numeroVol 
-        AND V.numeroVol = '$numeroVol' 
-        AND V.depart = '$depart' 
-        AND V.arrivee = '$arrivee' 
-        AND V.dateHeureLocaleDepart ='$dateDepart'
-        AND B.place IS NOT NULL;
-    ";
-
-    $result = $bdd->query($sql);
-
-    $places = array();
-
-    if ($result->num_rows > 0) {
-        // Traiter les résultats
-        while ($row = $result->fetch_assoc()) {
-            array_push($places, $row['place']);
-        }
-    } else {
-        echo "Aucun résultat trouvé.";
-    }
-
-    $bdd->close();
-    return $places;
+    $index = strpos($aeroport, "(");
+    return substr($aeroport, $index + 1, 3);
 }
 
 function bddGetAvionCarac($numeroVol, $depart, $arrivee, $dateDepart)
@@ -136,3 +107,33 @@ function bddGetInfoClient($id)
     $bdd->close();
     return $infoClient;
 }
+
+function bddGetPlacesOccupees($numeroVol, $depart, $arrivee, $dateDepart)
+{
+    $bdd = bdd_connect();
+
+    $sql = "SELECT B.place FROM fly_book_eseo.Billet B, fly_book_eseo.Vol V WHERE B.numeroVol = V.numeroVol 
+        AND V.numeroVol = '$numeroVol' 
+        AND V.depart = '$depart' 
+        AND V.arrivee = '$arrivee' 
+        AND V.dateHeureLocaleDepart ='$dateDepart'
+        AND B.place IS NOT NULL;
+    ";
+
+    $result = $bdd->query($sql);
+
+    $places = array();
+
+    if ($result->num_rows > 0) {
+        // Traiter les résultats
+        while ($row = $result->fetch_assoc()) {
+            array_push($places, $row['place']);
+        }
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+
+    $bdd->close();
+    return $places;
+}
+
