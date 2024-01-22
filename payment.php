@@ -18,11 +18,33 @@
 <body>
     <!-- Ajout du header du site -->
     <?php include "header.php" ?>
-    <div class="container my-5" >
+    <!-- Barre de navigation de la recherche -->
+
+    <nav class="shadow bg-white p-2 border">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+                <a class="nav-link" href="./">Recherche</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./recherche.php">Vol aller</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./informations.php">Informations voyageur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./recapitulatif.php">Récapitulatif</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Paiement</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container my-5">
 
         <div class="card my-2">
             <div class="card-header text-white bg-flyBook">
-                <h4>Formulaire de Paiement</h4>
+                <h4><b>Formulaire de Paiement</b></h4>
             </div>
             <div class="card-body">
                 <br>
@@ -62,7 +84,7 @@
                             </div>
 
                             <!-- Bouton de soumission -->
-                            <button type="submit" class="btn btn-primary">Payer</button>
+                            <button type="submit" class="btn bg-flyBook text-white">Payer</button>
 
                         </form>
                         <br>
