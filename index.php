@@ -58,14 +58,7 @@
                     </div>
 
                     <div class="row form-row">
-                        <div class="col-md-6" id="search-select-div">
-                            <select class="form-select" id="search-select" name="volRetour" required>
-                                <option value="simple" selected>Aller simple</option>
-                                <option value="aller-retour">Aller-retour</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="date" id="dateDepart" class="form-control" name="dateDepart" required>
                                 <label for="dateDepart">Date de départ</label>
