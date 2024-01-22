@@ -24,10 +24,13 @@
     $nom = $_POST["nom"];
     $dateNaissance = $_POST["datenaissance"];
     $place = $_POST["siege"];
-    $garantie = isset($_POST["garantie"]);
-    $bagage = isset($_POST["bagage"]);
+    $garantie = isset($_POST["garantie"])?"true":"false";
+    $bagage = isset($_POST["bagage"])?"true":"false";
+    $numeroVol = $_POST["numeroVol"];
+    $premiere = (strlen($place) == 2 && ($place[0] < 4))?"true":"false";
+    echo $place;
     ?>
-
+    
     <div class="container my-5">
 
         <div class="card my-2">
@@ -72,13 +75,14 @@
                             </div>
 
                             <div style="display: none;">
-                                <input type="text" name="numeroVol" value="<?php echo $_POST['numeroVol'] ?>">
-                                <input type="text" name="nom" value="<?php echo $nom ?>">
-                                <input type="text" name="prenom" value="<?php echo $prenom ?>">
-                                <input type="text" name="dateNaissance" value="<?php echo $dateNaissance ?>">
-                                <input type="text" name="siege" value="<?php echo $siege ?>">
-                                <input type="radio" name="bagage" value="<?php echo $bagage ?>">
-                                <input type="radio" name="garantie" value="<?php echo $garantie ?>">
+                                <input type="text" name="numeroVol" value="<?php echo $numeroVol; ?>">
+                                <input type="text" name="nom" value="<?php echo $nom; ?>">
+                                <input type="text" name="prenom" value="<?php echo $prenom; ?>">
+                                <input type="text" name="dateNaissance" value="<?php echo $dateNaissance; ?>">
+                                <input type="text" name="place" value="<?php echo $place; ?>">
+                                <input type="text" name="premiere" value="<?php echo $premiere; ?>">
+                                <input type="texte" name="bagage" value="<?php echo $bagage; ?>">
+                                <input type="texte" name="garantie" value="<?php echo $garantie; ?>">
                             </div>
 
 

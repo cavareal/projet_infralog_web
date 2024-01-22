@@ -10,7 +10,7 @@ function annulation()
         //Place annulé pour créer une annulation
         $idBilletAnnuler = $_POST['idBilletAnnuler'];
 
-        $sql = "UPDATE fly_book_eseo.Billet SET place='' WHERE numeroReservation='" . $idBilletAnnuler . "'";
+        $sql = "UPDATE fly_book_eseo.Billet SET place=NULL WHERE numeroReservation='" . $idBilletAnnuler . "'";
         $conn->query($sql);
         $conn->close();
 
@@ -19,16 +19,6 @@ function annulation()
         <strong>Succès !</strong> Nous avons pris votre demande d\'annulation en compte. Vous serez remboursez dans les prochaines 48 heures. Dans le cas contraire,
         veuillez contacter notre agence.
         </div>';
-
-        // Destinataire (adresse e-mail générique)
-        $destinataire = "alexis.bajolle@gmail.com";
-
-        $sujet = "Test d'envoi d'e-mail";
-        $message = "Ceci est un test d'envoi d'e-mail depuis PHP.";
-        $headers = "From: webmaster@example.com\r\n";
-        $headers .= "Reply-To: webmaster@example.com\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
     }
 }
 
@@ -73,7 +63,7 @@ function historique()
     D.acronyme AS 'iataDepart', D.ville AS 'villeDepart', D.pays AS 'paysDepart', D.nom 
     AS 'nomDepart', A.acronyme AS 'iataArrivee', A.ville AS 'villeArrivee', A.pays AS 'paysArrivee', A.nom AS 'nomArrivee' 
     FROM fly_book_eseo.Vol V, fly_book_eseo.Aeroport D, fly_book_eseo.Aeroport A, fly_book_eseo.Billet B
-    WHERE B.idClient = " . $_SESSION['pseudo'] . " AND B.numeroVol=V.numeroVol AND V.depart = D.acronyme AND V.arrivee = A.acronyme AND (V.dateHeureLocaleDepart < NOW() OR (B.place=''))
+    WHERE B.idClient = " . $_SESSION['pseudo'] . " AND B.numeroVol=V.numeroVol AND V.depart = D.acronyme AND V.arrivee = A.acronyme AND (V.dateHeureLocaleDepart < NOW() OR (B.place IS NULL))
     ORDER BY V.dateHeureLocaleArrivee DESC";
 
     $result = $conn->query($sql);

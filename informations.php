@@ -15,8 +15,8 @@
 
 <body>
     <?php
-    if (empty($_SESSION['pseudo']) || ($_SESSION['pseudo'] == '')) {
-        $_SESSION['urlRetour'] = $_SERVER['PHP_SELF'];
+    if (!isset($_SESSION['pseudo']) || ($_SESSION['pseudo'] == '')) {
+        $_SESSION['urlRetour'] = $_SERVER['PHP_SELF'] . '?numeroVol=' . $_GET['numeroVol'];
         header('location: ./connection.php');
     } else {
         include "./header.php";
@@ -113,7 +113,7 @@
 
                                         <div class="col">
                                             <li class="seat premiere">
-                                                <input type="radio" name="siege" id="<?php echo $place ?>" <?php echo $desactive ?> />
+                                                <input type="radio" name="siege" id="<?php echo $place ?>" value="<?php echo $place ?>" <?php echo $desactive ?> />
                                                 <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                             </li>
                                         </div>
@@ -133,7 +133,7 @@
                                     ?>
                                         <div class="col">
                                             <li class="seat">
-                                                <input type="radio" name="siege" id="<?php echo $place ?>" <?php echo $desactive ?> />
+                                                <input type="radio" name="siege" id="<?php echo $place ?>" value="<?php echo $place ?>" <?php echo $desactive ?> />
                                                 <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                             </li>
                                         </div>
@@ -257,7 +257,7 @@
                         </p>
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" style="display: none; margin-left:50px" value="<?php echo $_GET['numeroVol'] ?>">
+                        <input type="text" style="display: none;" name="numeroVol" value="<?php echo $_GET['numeroVol'] ?>">
                         <input type="submit" class="btn bg-flyBook text-white w-15" value="Valider">
                     </div>
                 </div>
