@@ -24,14 +24,17 @@ if (isset($_POST['email']) && isset($_POST['motdepasse'])) {
             // Stocker l'ID de l'utilisateur dans la session
             $row = $resultat->fetch_assoc();
             $_SESSION['pseudo'] = $row['id'];
-            header('Location: profile.php'); //Connexion réussie retour à la page profil
+            if (!empty($_SESSION['urlRetour']) && ($_SESSION['urlRetour'] != '')) {
+                header('Location: '.$_SESSION['urlRetour']); // Connexion réussie retour à la recherche en cours
+            } else {
+                header('Location: profile.php'); // Connexion réussie retour à la page profil
+            }
         } else {
             header('Location: connection.php?erreur=1');
         }
     } else {
         header('Location: connection.php?erreur=2');
     }
-
 }
 
 //Vérification de l'inscription
@@ -51,7 +54,7 @@ if (isset($_POST['email_inscri']) && isset($_POST['motdepasse_inscri'])) {
 
     if (!empty($email_inscri) && !empty($mdp_inscri)) {
         //Vérifie si le mail est conforme
-        if (strpos($email_inscri, '@') && (strlen($email_inscri)>5)) {
+        if (strpos($email_inscri, '@') && (strlen($email_inscri) > 5)) {
             //Vérifie si le mail existe
             $stmt = $conn->prepare('SELECT * FROM fly_book_eseo.Client WHERE email=?');
             $stmt->bind_param('s', $email_inscri);
@@ -71,8 +74,12 @@ if (isset($_POST['email_inscri']) && isset($_POST['motdepasse_inscri'])) {
                         $nouvel_id = $stmt_insert->insert_id;
                         $stmt_insert->close();
                         $_SESSION['pseudo'] = $nouvel_id;
-                        // Redirection vers la page de profil
-                        header('Location: profile.php');
+
+                        if (!empty($_SESSION['urlRetour']) && ($_SESSION['urlRetour'] != '')) {
+                            header('Location: '.$_SESSION['urlRetour']); // Redirection vers la recherche en cours
+                        } else {
+                            header('Location: profile.php'); // Redirection vers la page de profil
+                        }
                     } else {
                         header('Location: connection.php?form=inscription&erreur=7');
                     }
@@ -149,5 +156,3 @@ if (isset($_GET['erreur'])) {
         $messageErreur = "Le nom ou le prénom est mal renseigné.";
     }
 }
-
-?>
