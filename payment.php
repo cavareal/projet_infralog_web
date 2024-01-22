@@ -18,7 +18,7 @@
 <body>
     <!-- Ajout du header du site -->
     <?php include "header.php" ?>
-    <div class="container " style="border-radius: 5px; margin-top: 100px;">
+    <div class="container my-5" >
 
         <div class="card my-2">
             <div class="card-header text-white bg-flyBook">
