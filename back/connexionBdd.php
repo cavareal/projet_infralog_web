@@ -5,10 +5,10 @@ session_start();
 
 function bdd_connect() {
     // Informations de connexion à la bdd
-    $host = '192.168.56.90';
-    $user = 'moodle_user';
-    $dbPwd = 'network';
-    $dbName = 'moodle';
+    $host = 'localhost';
+    $user = 'root';
+    $dbPwd = 'root';
+    $dbName = 'fly_book_eseo';
 
     // Connection à la bdd
     $bdd = mysqli_connect($host, $user, $dbPwd, $dbName); 

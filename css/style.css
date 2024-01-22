@@ -2,10 +2,41 @@ body {
     background-color: aliceblue;
 }
 
-footer {
-    position:sticky; 
-    bottom:0;
-    background-color:white;
+input[type="radio"].radio-btn {
+    display: none;
+}
+
+input[type="radio"].radio-btn+label {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    color: #fff;
+    background-color: #6c757d;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+input[type="radio"].radio-btn:hover+label {
+    background-color: rgba(26, 87, 133, 255);
+    border-color: rgba(26, 87, 133, 255);
+}
+
+input[type="radio"].radio-btn:checked+label {
+    background-color: rgba(26, 87, 133, 255);
+    border-color: rgba(26, 87, 133, 255);;
+}
+
+.barre {
+    text-decoration: line-through;
+}
+
+.bg-flyBook {
+    background-color: rgba(26, 87, 133, 255);
+}
+
+header img {
+    height: 40px;
 }
 
 header img {
@@ -31,7 +62,7 @@ header img {
 #recherche {
     padding: 10px;
     border-radius: 5px;
-    background-color:white;
+    background-color: white;
 }
 
 #card-content {
@@ -49,6 +80,12 @@ header img {
 }
 
 #search-select-div {
-    display: flex; 
+    display: flex;
     align-items: center;
+}
+
+#index-footer {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
 }
