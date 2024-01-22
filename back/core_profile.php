@@ -1,5 +1,5 @@
 <?php
-include("back/connexionBdd.php");
+include("./back/connexionBdd.php");
 
 global $conn;
 $conn = bdd_connect();

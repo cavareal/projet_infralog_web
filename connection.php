@@ -1,6 +1,6 @@
 <!-- Cette page permet la création de compte et la connexion de l'utilisateur-->
 <!DOCTYPE html>
-<?php include("back/core_connection.php");
+<?php include("./back/core_connection.php");
 ?>
 
 </html>
@@ -27,7 +27,7 @@
     <?php include("header.php") ?>
 
     <div class="card img-fluid">
-        <img class="card-img-top" src="images/avion_connexion.jpg" alt="avion_connexion">
+        <img class="card-img-top" src="./images/avion_connexion.jpg" alt="avion_connexion">
         <div class="card-img-overlay">
             <?php
             //Affichage erreurs de connexion
