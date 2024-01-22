@@ -136,9 +136,6 @@
 
                             <div style="display: none;">
                                 <input type="text" name="numeroVol" value="<?php echo $vol['numeroVol'] ?>">
-                                <input type="text" name="depart" value="<?php echo $vol['depart'] ?>">
-                                <input type="text" name="arrivee" value="<?php echo $vol['arrivee'] ?>">
-                                <input type="text" name="dateDepart" value="<?php echo $vol['dateDepart'] ?>">
                             </div>
 
                             <div class="col-sm-4 d-flex align-items-center justify-content-center">

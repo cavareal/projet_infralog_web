@@ -21,10 +21,8 @@
     } else {
         include "./header.php";
         $infos = bddGetInfoClient($_SESSION['pseudo']);
-        $depart = $_GET['depart'];
-        $arrivee = $_GET['arrivee'];
         $numeroVol = $_GET['numeroVol'];
-        $dateDepart = $_GET['dateHeureDepart'];
+
     ?>
 
         <link href="./css/style_seat_selector.css" rel="stylesheet">
