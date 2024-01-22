@@ -1,7 +1,7 @@
 <!-- Cette page permet la création de compte et la connexion de l'utilisateur-->
 <!DOCTYPE html>
 <?php
-include("back/core_profile.php"); ?>
+include("./back/core_profile.php"); ?>
 <html>
 
 <head>

@@ -1,6 +1,6 @@
 <?php
 
-include ".\back\connexionBdd.php";
+include "./back/connexionBdd.php";
 
 global $conn;
 
