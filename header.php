@@ -22,11 +22,12 @@
     <?php
     if (isset($_GET['deco'])) {
         $_SESSION['pseudo'] = '';
+        header('Location: ./connection.php?form=connexion');
     }
     ?>
 
-    <header>
-        <nav class="navbar navbar-expand-md bg-white sticky-top shadow-lg">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md bg-white shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">
 
@@ -55,7 +56,7 @@
                                                 } ?>>Mes réservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contactez-nous</a>
+                            <a class="nav-link" href="./contact.php">Contactez-nous</a>
                         </li>
                     </ul>
 
@@ -69,7 +70,9 @@
                             <form action="" method="GET">
                                 <button class="btn" type="submit" name="deco" value="deco">Se déconnecter</button>
                             </form>
-                            <img src="./images/default_picture.png" alt="default_picture.png" class="rounded-pill">
+                            <a href="profile.php">
+                                <img src="./images/default_picture.png" alt="default_picture.png" class="rounded-pill">
+                            </a>
                         </div>
                     <?php } ?>
 
