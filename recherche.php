@@ -39,8 +39,6 @@
     $arrivee = getIata($_GET['arrivee']);
     $dateDepart = $_GET['dateDepart'];
 
-    $_SESSION['volActif'] = ["depart" => $depart, "arrivee" => $arrivee];
-
     // Récuppération des vols correspondant à la recherche
     $vols = bddGetVols($depart, $arrivee, $dateDepart);
     ?>
@@ -138,9 +136,6 @@
 
                             <div style="display: none;">
                                 <input type="text" name="numeroVol" value="<?php echo $vol['numeroVol'] ?>">
-                                <input type="text" name="dateHeureDepart" value="<?php echo $vol['dateHeureDepart'] ?>">
-                                <input type="text" name="depart" value="<?php echo $vol['iataDepart'] ?>">
-                                <input type="text" name="arrivee" value="<?php echo $vol['iataArrivee'] ?>">
                             </div>
 
                             <div class="col-sm-4 d-flex align-items-center justify-content-center">
