@@ -18,27 +18,6 @@
 <body>
     <!-- Ajout du header du site -->
     <?php include "header.php" ?>
-    <!-- Barre de navigation de la recherche -->
-
-    <nav class="shadow bg-white p-2 border">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="nav-item">
-                <a class="nav-link" href="./">Recherche</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./recherche.php">Vol aller</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./informations.php">Informations voyageur</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./recapitulatif.php">Récapitulatif</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Paiement</a>
-            </li>
-        </ul>
-    </nav>
 
     <div class="container my-5">
 
