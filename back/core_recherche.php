@@ -56,16 +56,13 @@ function getIata($aeroport)
     return substr($aeroport, $index + 1, 3);
 }
 
-function bddGetAvionCarac($numeroVol, $depart, $arrivee, $dateDepart)
+function bddGetAvionCarac($numeroVol)
 {
     $bdd = bdd_connect();
 
     $sql = "SELECT M.nbColonne, M.nbPassager, M.nbPremiereClasse FROM fly_book_eseo.ModeleAvion M, fly_book_eseo.Vol V
         WHERE M.modele = V.modeleAvion 
         AND V.numeroVol = '$numeroVol' 
-        AND V.depart = '$depart' 
-        AND V.arrivee = '$arrivee' 
-        AND V.dateHeureLocaleDepart = '$dateDepart';
     ";
 
     $result = $bdd->query($sql);
@@ -108,15 +105,12 @@ function bddGetInfoClient($id)
     return $infoClient;
 }
 
-function bddGetPlacesOccupees($numeroVol, $depart, $arrivee, $dateDepart)
+function bddGetPlacesOccupees($numeroVol)
 {
     $bdd = bdd_connect();
 
     $sql = "SELECT B.place FROM fly_book_eseo.Billet B, fly_book_eseo.Vol V WHERE B.numeroVol = V.numeroVol 
         AND V.numeroVol = '$numeroVol' 
-        AND V.depart = '$depart' 
-        AND V.arrivee = '$arrivee' 
-        AND V.dateHeureLocaleDepart ='$dateDepart'
         AND B.place IS NOT NULL;
     ";
 

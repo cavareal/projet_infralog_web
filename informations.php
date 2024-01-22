@@ -82,8 +82,8 @@
                 <!-- Sélection du siège -->
 
                 <?php
-                $placesOccupees = bddGetPlacesOccupees($numeroVol, $depart, $arrivee, $dateDepart);
-                $carac = bddGetAvionCarac($numeroVol, $depart, $arrivee, $dateDepart);
+                $placesOccupees = bddGetPlacesOccupees($numeroVol);
+                $carac = bddGetAvionCarac($numeroVol);
                 $nbColonne = $carac['nbColonne'];
                 $nbLignePremiere = intdiv($carac['nbPremiereClasse'], $nbColonne);
                 $nbLigne = intdiv($carac['nbPassager'], $nbColonne);
