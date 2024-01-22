@@ -133,6 +133,7 @@
                                 <?php echo $vol['nomArrivee'] . ', ' . $vol['villeArrivee'] . ', ' . strtoupper($vol['paysArrivee']); ?>
                             </p>
                         </div>
+                        
                         <div class="col-sm-4 d-flex align-items-center justify-content-center">
                             <button class="btn btn-lg bg-flyBook text-white w-75 " id="reservation_btn" data-bs-toggle="modal" data-bs-target="#myModal">
                                 À partir de <br> <b>
@@ -178,7 +179,7 @@
                                             <li class="list-group-item barre">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-1" class="radio-btn" value checked required>
+                                            <input type="radio" name="classe" id="classe-1" class="radio-btn" value="standard" checked required>
                                             <label for="classe-1">Sélectionner</label>
                                         </div>
                                     </div>
@@ -195,7 +196,7 @@
                                             <li class="list-group-item">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-2" class="radio-btn">
+                                            <input type="radio" name="classe" id="classe-2" class="radio-btn" value="standardBagage">
                                             <label for="classe-2">Sélectionner</label>
                                         </div>
                                     </div>
@@ -214,7 +215,7 @@
                                             <li class="list-group-item barre">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-3" class="radio-btn">
+                                            <input type="radio" name="classe" id="classe-3" class="radio-btn" value="premiere">
                                             <label for="classe-3">Sélectionner</label>
                                         </div>
                                     </div>
@@ -231,7 +232,7 @@
                                             <li class="list-group-item">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-4" class="radio-btn">
+                                            <input type="radio" name="classe" id="classe-4" class="radio-btn" value="premiereBagage">
                                             <label for="classe-4">Sélectionner</label>
                                         </div>
                                     </div>
@@ -379,7 +380,7 @@
                                     </div>
 
                                     <div class="col-2" style="align-items: center; display: flex;">
-                                        Sièges réservés
+                                        Sièges indisponibles
                                     </div>
 
                                     <div class="col-1">
