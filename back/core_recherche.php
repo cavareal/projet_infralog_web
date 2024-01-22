@@ -124,7 +124,7 @@ function bddGetPlacesOccupees($numeroVol)
             array_push($places, $row['place']);
         }
     } else {
-        echo "Aucun résultat trouvé.";
+        
     }
 
     $bdd->close();

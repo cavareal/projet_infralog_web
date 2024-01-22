@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function bddInsertBillet($numeroReservation, $idClient, $numeroVol, $bagages, $prix, $garantie, $place, $nomPassager, $prenomPassager, $agePassager, $premiereClasse)
 {
     $bdd = bdd_connect();
@@ -12,7 +14,7 @@ function bddInsertBillet($numeroReservation, $idClient, $numeroVol, $bagages, $p
     $bdd->close();
 }
 
-bddInsertBillet(substr(strtoupper(hash('sha256',$_GET["numeroVol"])),5,10), $_SESSION['pseudo'], $_GET['numeroVol'], $_GET["bagages"], 145, $_GET['garantie'], $_GET['place'],$_GET['nom'], $_GET['prenom'], 99, $_GET['premiere']);
+bddInsertBillet(substr(strtoupper(hash('sha256',$_POST["numeroVol"])),5,10), $_SESSION['pseudo'], $_POST['numeroVol'], $_POST["bagages"], 145, $_POST['garantie'], $_POST['place'],$_POST['nom'], $_POST['prenom'], 99, $_POST['premiere']);
 
 header('location: ../wallet.php');
 ?>

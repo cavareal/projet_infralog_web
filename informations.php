@@ -222,7 +222,7 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie" value="oui">
+                            <input class="form-check-input" type="checkbox" id="mySwitch" name="garantie" value="oui" >
                             <label class="form-check-label" for="mySwitch">Assurance annulation</label>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="monSwitch" name="bagage" value="oui">
+                            <input class="form-check-input" type="checkbox" id="monSwitch" name="bagage" value="oui" >
                             <label class="form-check-label" for="monSwitch">Bagage en soute</label>
                         </div>
                     </div>

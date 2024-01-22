@@ -20,13 +20,12 @@
     <?php
     include "header.php";
 
-    $prenom = $_GET["prenom"];
-    $nom = $_GET["nom"];
-    $dateNaissance = $_GET["datenaissance"];
-    $place = $_GET["siege"];
-    $garantie = $_GET["garantie"];
-    $bagage = $_GET["bagage"];
-    $numeroVol
+    $prenom = $_POST["prenom"];
+    $nom = $_POST["nom"];
+    $dateNaissance = $_POST["datenaissance"];
+    $place = $_POST["siege"];
+    $garantie = isset($_POST["garantie"]);
+    $bagage = isset($_POST["bagage"]);
     ?>
 
     <div class="container my-5">
@@ -73,7 +72,7 @@
                             </div>
 
                             <div style="display: none;">
-                                <input type="text" name="numeroVol" value="<?php echo $_GET['numeroVol'] ?>">
+                                <input type="text" name="numeroVol" value="<?php echo $_POST['numeroVol'] ?>">
                                 <input type="text" name="nom" value="<?php echo $nom ?>">
                                 <input type="text" name="prenom" value="<?php echo $prenom ?>">
                                 <input type="text" name="dateNaissance" value="<?php echo $dateNaissance ?>">
