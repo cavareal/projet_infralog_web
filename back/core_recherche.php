@@ -55,3 +55,84 @@ function getIata($aeroports)
     $index = strpos($aeroports, "(");
     return substr($aeroports, $index + 1, 3);
 }
+
+function bddGetPlacesOccupees($numeroVol, $depart, $arrivee, $dateDepart)
+{
+    $bdd = bdd_connect();
+
+    $sql = "SELECT B.place FROM fly_book_eseo.Billet B, fly_book_eseo.Vol V WHERE B.numeroVol = V.numeroVol 
+        AND V.numeroVol = '$numeroVol' 
+        AND V.depart = '$depart' 
+        AND V.arrivee = '$arrivee' 
+        AND V.dateHeureLocaleDepart ='$dateDepart'
+        AND B.place IS NOT NULL;
+    ";
+
+    $result = $bdd->query($sql);
+
+    $places = array();
+
+    if ($result->num_rows > 0) {
+        // Traiter les résultats
+        while ($row = $result->fetch_assoc()) {
+            array_push($places, $row['place']);
+        }
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+
+    $bdd->close();
+    return $places;
+}
+
+function bddGetAvionCarac($numeroVol, $depart, $arrivee, $dateDepart)
+{
+    $bdd = bdd_connect();
+
+    $sql = "SELECT M.nbColonne, M.nbPassager, M.nbPremiereClasse FROM fly_book_eseo.ModeleAvion M, fly_book_eseo.Vol V
+        WHERE M.modele = V.modeleAvion 
+        AND V.numeroVol = '$numeroVol' 
+        AND V.depart = '$depart' 
+        AND V.arrivee = '$arrivee' 
+        AND V.dateHeureLocaleDepart = '$dateDepart';
+    ";
+
+    $result = $bdd->query($sql);
+
+    $nbPlace = array();
+
+    if ($result->num_rows > 0) {
+        // Traiter les résultats
+        while ($row = $result->fetch_assoc()) {
+            $nbPlace = $row;
+        }
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+
+    $bdd->close();
+    return $nbPlace;
+}
+
+function bddGetInfoClient($id)
+{
+    $bdd = bdd_connect();
+
+    $sql = "SELECT C.email, C.nom, C.prenom, C.dateNaissance FROM fly_book_eseo.Client C WHERE id='$id';";
+
+    $result = $bdd->query($sql);
+
+    $infoClient = array();
+
+    if ($result->num_rows > 0) {
+        // Traiter les résultats
+        while ($row = $result->fetch_assoc()) {
+            $infoClient = $row;
+        }
+    } else {
+        echo "Aucun résultat trouvé.";
+    }
+
+    $bdd->close();
+    return $infoClient;
+}
