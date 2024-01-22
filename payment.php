@@ -17,7 +17,17 @@
 
 <body>
     <!-- Ajout du header du site -->
-    <?php include "header.php" ?>
+    <?php
+    include "header.php";
+
+    $prenom = $_GET["prenom"];
+    $nom = $_GET["nom"];
+    $dateNaissance = $_GET["datenaissance"];
+    $place = $_GET["siege"];
+    $garantie = $_GET["garantie"];
+    $bagage = $_GET["bagage"];
+    $numeroVol
+    ?>
 
     <div class="container my-5">
 
@@ -31,7 +41,7 @@
                     <div class="col-sm-1">
                     </div>
                     <div class="col-sm-7">
-                        <form action="traitement_paiement.php" method="post">
+                        <form action="./back/core_billet.php" method="post">
                             <!-- Informations de la carte -->
                             <div class="form-group">
                                 <label for="card_number">Numéro de carte :</label>
@@ -62,15 +72,25 @@
                                 <input type="text" class="form-control" name="amount" id="amount" placeholder="Montant en euros" required>
                             </div>
 
+                            <div style="display: none;">
+                                <input type="text" name="numeroVol" value="<?php echo $_GET['numeroVol'] ?>">
+                                <input type="text" name="nom" value="<?php echo $nom ?>">
+                                <input type="text" name="prenom" value="<?php echo $prenom ?>">
+                                <input type="text" name="dateNaissance" value="<?php echo $dateNaissance ?>">
+                                <input type="text" name="siege" value="<?php echo $siege ?>">
+                                <input type="radio" name="bagage" value="<?php echo $bagage ?>">
+                                <input type="radio" name="garantie" value="<?php echo $garantie ?>">
+                            </div>
+
+
                             <!-- Bouton de soumission -->
                             <button type="submit" class="btn bg-flyBook text-white">Payer</button>
-
                         </form>
                         <br>
                     </div>
                     <div class="col-sm-4 d-flex align-items-center justify-content-center"><img src="images/carte_logo.jpg" style="max-width: 300px; max-height: 300px;" class="img-fluid"></div>
                 </div>
-                <p><em>* Vous n'êtes pas vraiment obligés de rentrer vos coordonnées bancaires pour vos tests. Mais si vous vous sentez d'humeur charitable le groupe 7 sera heureux d'accepter toute donation.</em></p>
+                <p><em>* Vous n'êtes pas vraiment obligés de rentrer vos coordonnées bancaires pour vos tests. Mais si vous vous sentez d'humeur charitable le groupe 7 sera heureux d'accepter toutes donations.</em></p>
             </div>
         </div>
     </div>
