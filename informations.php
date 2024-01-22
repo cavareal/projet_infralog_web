@@ -20,6 +20,7 @@
         header('location: ./connection.php');
     } else {
         include "./header.php";
+        $infos = bddGetInfoClient($_SESSION['pseudo']);
     ?>
 
         <!-- Barre de navigation de la recherche -->
@@ -47,20 +48,20 @@
             <div class="container my-3">
                 <h3>Informations personnelles du voyageur</h3>
                 <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                    <input class="form-control" type="text" id="prenom" name="prenom" placeholder="Prénom" value="<?php echo $infos['prenom'] ?>" required>
                     <label for="prenom">Prénom :</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" type="text" id="nom" name="nom" placeholder="Nom" required>
+                    <input class="form-control" type="text" id="nom" name="nom" placeholder="Nom" value="<?php echo $infos['nom'] ?>" required>
                     <label for="nom">Nom :</label>
                 </div>
 
                 <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" type="date" id="datenaissance" name="datenaissance" placeholder="Date de naissance" required>
+                    <input class="form-control" type="date" id="datenaissance" name="datenaissance" placeholder="Date de naissance" value="<?php echo $infos['dateNaissance'] ?>" required>
                     <label for="datenaisssance">Date de naissance :</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" type="text" id="email" name="email" placeholder="Email" required>
+                    <input class="form-control" type="text" id="email" name="email" placeholder="Email" value="<?php echo $infos['email'] ?>" required>
                     <label for="email">Email :</label>
                 </div>
 

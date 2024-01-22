@@ -118,7 +118,7 @@ function bddGetInfoClient($id)
 {
     $bdd = bdd_connect();
 
-    $sql = "SELECT * FROM fly_book_eseo.Client WHERE id='$id';";
+    $sql = "SELECT C.email, C.nom, C.prenom, C.dateNaissance FROM fly_book_eseo.Client C WHERE id='$id';";
 
     $result = $bdd->query($sql);
 
