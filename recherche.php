@@ -159,7 +159,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                <form class="needs-validation">
+                <form class="needs-validation" action="./informations.php">
                     <!-- Modal body -->
                     <div class="modal-body">
 
@@ -178,7 +178,7 @@
                                             <li class="list-group-item barre">Un bagage en soute</li>
                                         </ul>
                                         <div class="d-grid">
-                                            <input type="radio" name="classe" id="classe-1" class="radio-btn">
+                                            <input type="radio" name="classe" id="classe-1" class="radio-btn" value checked required>
                                             <label for="classe-1">Sélectionner</label>
                                         </div>
                                     </div>
@@ -401,7 +401,7 @@
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
-                            <input type="submit" class="btn bg-flyBook text-white" action="./informations.php" value="Valider">
+                            <input type="submit" class="btn bg-flyBook text-white" value="Valider">
                         </div>
 
                     </div>
