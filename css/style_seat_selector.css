@@ -69,7 +69,8 @@ ol {
     opacity: 0;
 }
 
-.seat input[type=radio]:checked+label {
+.seat input[type=radio]:checked+label,
+#siegeSelectioneLegende+label {
     background: #bada55;
     -webkit-animation-name: rubberBand;
     animation-name: rubberBand;
@@ -97,7 +98,8 @@ ol {
     cursor: not-allowed;
 }
 
-.seat label {
+.seat label,
+#siegeLibreLegende:disabled+label {
     color: white;
     display: block;
     position: relative;
@@ -116,7 +118,25 @@ ol {
     animation-fill-mode: both;
 }
 
-
+.seat.premiere label,
+#siegeLibrePremiereLegende:disabled+label {
+    color: white;
+    display: block;
+    position: relative;
+    width: 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5rem;
+    padding: 4px 0;
+    background: rgb(133, 26, 26);
+    border-top: 5px solid rgb(163, 56, 56);
+    border-right: 8px solid rgb(183, 76, 76);
+    border-bottom: 5px solid rgb(163, 56, 56);
+    border-radius: 5px;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+}
 
 .seat label:hover {
     cursor: pointer;
@@ -207,4 +227,8 @@ ol {
 
 .col {
     padding: 0;
+}
+
+.seat.legende {
+    float: right;
 }
