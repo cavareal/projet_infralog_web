@@ -54,6 +54,10 @@
             <?php } ?>
 
             <li class="nav-item">
+                <a class="nav-link disabled" href="#">Informations voyageur</a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link disabled" href="#">Récapitulatif</a>
             </li>
             <li class="nav-item">
@@ -272,7 +276,7 @@
                             $nbLigne = intdiv($carac['nbPassager'], $nbColonne);
                             $colones = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
                             ?>
-                            
+
                             <div class="plane fuselage" style="background-color: whitesmoke;">
 
                                 <div class="container-fluid">
@@ -296,7 +300,7 @@
                                             ?>
                                                 <div class="col">
                                                     <li class="seat premiere">
-                                                        <input type="radio" name="siege" id="<?php echo $place ?>" value="<?php echo $place ?>" <?php echo $desactive ?> required/>
+                                                        <input type="radio" name="siege" id="<?php echo $place ?>" value="<?php echo $place ?>" <?php echo $desactive ?> required />
                                                         <label for="<?php echo $place ?>"><?php echo $place ?></label>
                                                     </li>
                                                 </div>
@@ -345,70 +349,68 @@
                             <!-- Légende de la sélection du siège -->
                             <div class="container">
                                 <div class="row">
-                                <div class="col-1">
-                        <li class="seat legende">
-                            <input type="radio" id="siegeLibrePremiereLegende" disabled />
-                            <label for="siegeLibrePremiereLegende">XXX</label>
-                        </li>
-                    </div>
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeLibrePremiereLegende" disabled />
+                                            <label for="siegeLibrePremiereLegende">XXX</label>
+                                        </li>
+                                    </div>
 
-                    <div class="col-2" style="align-items: center; display: flex;">
-                        Sièges première classe libres
-                    </div>
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Sièges première classe libres
+                                    </div>
 
-                    <div class="col-1">
-                        <li class="seat legende">
-                            <input type="radio" id="siegeLibreLegende" disabled />
-                            <label for="siegeLibreLegende">XXX</label>
-                        </li>
-                    </div>
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeLibreLegende" disabled />
+                                            <label for="siegeLibreLegende">XXX</label>
+                                        </li>
+                                    </div>
 
-                    <div class="col-2" style="align-items: center; display: flex;">
-                        Sièges standards libres
-                    </div>
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Sièges standards libres
+                                    </div>
 
-                    <div class="col-1">
-                        <li class="seat legende">
-                            <input type="radio" id="siegeReserveLegende" disabled />
-                            <label for="siegeReserveLegende">XXX</label>
-                        </li>
-                    </div>
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeReserveLegende" disabled />
+                                            <label for="siegeReserveLegende">XXX</label>
+                                        </li>
+                                    </div>
 
-                    <div class="col-2" style="align-items: center; display: flex;">
-                        Sièges réservés
-                    </div>
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Sièges réservés
+                                    </div>
 
-                    <div class="col-1">
-                        <li class="seat legende">
-                            <input type="radio" id="siegeSelectioneLegende" disabled />
-                            <label for="siegeSelectioneLegende">XXX</label>
-                        </li>
-                    </div>
+                                    <div class="col-1">
+                                        <li class="seat legende">
+                                            <input type="radio" id="siegeSelectioneLegende" disabled />
+                                            <label for="siegeSelectioneLegende">XXX</label>
+                                        </li>
+                                    </div>
 
-                    <div class="col-2" style="align-items: center; display: flex;">
-                        Siège sélectionné
-                    </div>
+                                    <div class="col-2" style="align-items: center; display: flex;">
+                                        Siège sélectionné
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
-                        <!-- Fien de sélection de siège -->
+                        <!-- Fin de sélection de siège -->
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-block bg-flyBook text-white">Valider</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                            <input type="submit" class="btn bg-flyBook text-white" action="./informations.php" value="Valider">
                         </div>
 
                     </div>
-
-
-
 
                 </form>
             </div>
         </div>
     </div>
+    <!-- Fin du Modal -->
 
     <!-- Ajout du footer du site -->
     <?php include "footer.php" ?>
