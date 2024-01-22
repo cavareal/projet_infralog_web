@@ -28,7 +28,7 @@
     $bagage = isset($_POST["bagage"])?"true":"false";
     $numeroVol = $_POST["numeroVol"];
     $premiere = (strlen($place) == 2 && ($place[0] < 4))?"true":"false";
-    echo $place;
+    $prix = 100;
     ?>
     
     <div class="container my-5">
@@ -71,7 +71,7 @@
                             <!-- Montant à payer -->
                             <div class="form-group">
                                 <label for="amount">Montant à payer :</label>
-                                <input type="text" class="form-control" name="amount" id="amount" placeholder="Montant en euros" required>
+                                <input type="text" class="form-control" name="amount" value="<?php echo $prix ?>" id="amount" placeholder="Montant en euros" readonly required>
                             </div>
 
                             <div style="display: none;">
@@ -83,6 +83,7 @@
                                 <input type="text" name="premiere" value="<?php echo $premiere; ?>">
                                 <input type="texte" name="bagage" value="<?php echo $bagage; ?>">
                                 <input type="texte" name="garantie" value="<?php echo $garantie; ?>">
+                                <input type="texte" name="prix" value="<?php echo $prix; ?>">
                             </div>
 
 

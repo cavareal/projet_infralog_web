@@ -1,5 +1,6 @@
 <?php
 include "./back/connexionBdd.php";
+include "./donnees/donnees.php";
 
 /**
  * @return vols un tableau contenant l'ensemble des objets vols de la base de donnée
@@ -131,3 +132,35 @@ function bddGetPlacesOccupees($numeroVol)
     return $places;
 }
 
+function bddGetPrix($numeroVol, $bagages, $garantie, $premiere)
+{
+    $bdd = bdd_connect();
+
+    $sql = "SELECT Vol.prixStandard FROM Vol WHERE Vol.numeroVol = $numeroVol;";
+    $result = $bdd->query($sql);
+
+    $standard = 0;
+
+    if ($result->num_rows > 0) {
+        // Traiter les résultats
+        while ($row = $result->fetch_assoc()) {
+           $standard = $row['prixStandard'];
+        }
+    }
+
+    if($premiere == "true") {
+        $prix = $standard * $COEF_PREMIERE;
+    }else{
+        $prix = $standard;
+    }
+
+    if($bagages == "true") {
+        $prix += $PRIX_BAGAGE_SOUTE;
+    }
+    if($garantie == "true") {
+        $prix += $PRIX_ASSURANCE;
+    }
+    
+    $bdd->close();
+    return $prix;
+}
